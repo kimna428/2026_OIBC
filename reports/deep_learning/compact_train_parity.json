@@ -1,0 +1,47 @@
+{
+  "kind": "feature_parity_only_no_training",
+  "days": 3,
+  "site_hours": 18216,
+  "partition": "train",
+  "max_absolute_error": {
+    "weather": 0.0,
+    "temporal": 0.0,
+    "target": 0.0,
+    "energy": 0.0,
+    "missing_kind": 0.0,
+    "smp": 0.0,
+    "k": 0.0
+  },
+  "missing_masks_equal": {
+    "weather": true,
+    "temporal": true,
+    "target": true,
+    "energy": true,
+    "missing_kind": true,
+    "smp": true,
+    "k": true
+  },
+  "normalized_tensors_and_all_masks_exact": true,
+  "legacy_bytes": 7521995,
+  "compact_bytes": 1430837,
+  "single_process_warm_timing": {
+    "train_site_ms_per_sample": {
+      "legacy": 0.22711981000611559,
+      "compact": 0.5012083129258826
+    },
+    "dev_site_ms_per_sample": {
+      "legacy": 0.1769427180988714,
+      "compact": 1.3082994664728176
+    },
+    "train_fleet_ms_per_sample": {
+      "legacy": 2.9172920621931553,
+      "compact": 5.1755829481408
+    },
+    "dev_fleet_ms_per_sample": {
+      "legacy": 2.6861460064537823,
+      "compact": 7.087229460012168
+    }
+  },
+  "timing_is_not_gpu_training_throughput": true,
+  "timing_method": "median of 5 rounds, <=32 fixed sample indices, one CPU process"
+}

@@ -13,7 +13,10 @@ from .runtime import device_for,GPULock
 
 def export_predictions(grid,cache,days,output):
     """Site Parquet plus a validated group CSV in the official submission shape."""
-    output=Path(output); output.parent.mkdir(parents=True,exist_ok=True)
+    output=Path(output)
+    from .storage import result_guard
+    result_guard(output,len(days)*cache.num_sites*24*80+2**20)
+    output.parent.mkdir(parents=True,exist_ok=True)
     if output.suffix!='.parquet': raise ValueError('--output must end in .parquet (site predictions)')
     groupfile=output.with_suffix('.forecast.csv'); capacity=cache.sites.capacity_kw.to_numpy(); group=cache.composition.set_index('site_id').group.reindex(cache.sites.site_id)
     writer=None; group_rows=[]

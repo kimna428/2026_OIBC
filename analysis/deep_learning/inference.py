@@ -11,7 +11,10 @@ def dimensions(cache):
     return {'weather_dim':len(cache.manifest['weather_features']),'temporal_dim':len(cache.manifest['temporal_features']),'static_dim':len(cache.manifest['static_features'])*2+sum(len(v)+1 for v in cache.manifest['station_categories'].values()),'num_sites':cache.num_sites}
 
 def predict_grid(model,dataset,training_config,device,filename,precision='auto',postprocess='none'):
-    filename=Path(filename); filename.parent.mkdir(parents=True,exist_ok=True)
+    filename=Path(filename)
+    from .storage import result_guard
+    result_guard(filename,len(dataset.day_indices)*dataset.cache.num_sites*24*4+4096)
+    filename.parent.mkdir(parents=True,exist_ok=True)
     days=dataset.day_indices; mapping={int(d):i for i,d in enumerate(days)}
     pred=np.lib.format.open_memmap(filename,mode='w+',dtype='float32',shape=(len(days),dataset.cache.num_sites,24)); pred[:]=np.nan
     iterator=loader(dataset,False,training_config,torch.Generator().manual_seed(12345)); model.eval(); dtype=amp_settings(device,precision)

@@ -112,6 +112,9 @@ def train_worker(args):
     if resume: model.load_state_dict(resume['model'],strict=True)
     run=path(args.run_dir) if args.run_dir else path(c['training']['save_root'])/f"{c['name']}_seed{seed}_fold{c['split']['outer_fold']}_{phase}"
     if (run/'last.pt').exists() and not resume: raise FileExistsError(f'Existing run {run}; explicitly --resume or choose --run-dir')
+    from .storage import result_guard
+    # Adam states + parameters, last/best and atomic temporary, before any updates.
+    storage_snapshot=result_guard(run/'last.pt',parameter_count(model)*40+16*1024**2)
     run.mkdir(parents=True,exist_ok=True)
     run_spec={'config':c,'plan':plan,'feature_signature':cache.manifest['feature_signature'],'cache_signature':cache.manifest['signature'],'normalizer':normalizer,'composition':comp.to_dict('records'),'dimensions':dims,'phase':phase,'selection_checkpoint_signature':selection.get('run_signature') if selection else (resume['provenance']['selection_checkpoint_signature'] if resume else None),'initial_checkpoint_signature':initial.get('run_signature') if initial else (resume['provenance']['initial_checkpoint_signature'] if resume else None)}
     signature=fingerprint(run_spec)
@@ -127,7 +130,7 @@ def train_worker(args):
         opt_keys=['batch_size','accumulation_steps','learning_rate','weight_decay','warmup_steps','gradient_clip']
         stages=[{'epochs':c['training']['epochs'],'scheduler_epochs':c['training']['epochs'],'loss':c['loss'],'group':c['group'],'optimization':{k:c['training'][k] for k in opt_keys}}]
     parents=initial['recipe'] if initial else (resume['parent_recipe'] if resume else [])
-    (run/'config.json').write_text(json.dumps(run_spec,indent=2)); (run/'environment.json').write_text(json.dumps({'python':sys.version,'packages':{name:importlib.metadata.version(name) for name in ['torch','numpy','pandas','pyarrow','PyYAML']},'source_sha256':{str(f.relative_to(Path(__file__).parent)):hashlib.sha256(f.read_bytes()).hexdigest() for f in sorted(Path(__file__).parent.rglob('*.py')) if 'tests' not in f.parts},'torch':str(torch.__version__),'cuda_build':torch.version.cuda,'device':str(device),'gpu_name':torch.cuda.get_device_name(0) if device.type=='cuda' else None,'parameters':parameter_count(model),'amp_dtype':str(dtype),'smoke_test':args.smoke_test,'synthetic':cache.manifest['kind']=='synthetic_smoke'},indent=2))
+    (run/'config.json').write_text(json.dumps(run_spec,indent=2)); (run/'environment.json').write_text(json.dumps({'python':sys.version,'storage':storage_snapshot,'packages':{name:importlib.metadata.version(name) for name in ['torch','numpy','pandas','pyarrow','PyYAML']},'source_sha256':{str(f.relative_to(Path(__file__).parent)):hashlib.sha256(f.read_bytes()).hexdigest() for f in sorted(Path(__file__).parent.rglob('*.py')) if 'tests' not in f.parts},'torch':str(torch.__version__),'cuda_build':torch.version.cuda,'device':str(device),'gpu_name':torch.cuda.get_device_name(0) if device.type=='cuda' else None,'parameters':parameter_count(model),'amp_dtype':str(dtype),'smoke_test':args.smoke_test,'synthetic':cache.manifest['kind']=='synthetic_smoke'},indent=2))
     print(f'Training samples={len(train_data)}, parameters={parameter_count(model):,}, AMP={dtype}; device={device}',flush=True)
     global_step=resume['global_step'] if resume else 0; best=resume['best_value'] if resume else float('inf'); bad_epochs=resume['bad_epochs'] if resume else 0
     start_stage=resume['cursor']['stage'] if resume else 0

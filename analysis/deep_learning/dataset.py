@@ -12,7 +12,7 @@ from analysis.validation import validate_sites, validate_composition
 class DayCache:
     def __init__(self,root):
         self.root=Path(root); self._arrays={}
-        required=['manifest.json','sites.csv','composition.csv']+[n+'.npy' for n in ['weather','temporal','target','energy','missing_kind','static','smp','k']]
+        required=['manifest.json','sites.csv','composition.csv','static.npy']
         missing=[str(self.root/n) for n in required if not (self.root/n).is_file()]
         if missing: raise FileNotFoundError('Incomplete cache:\n'+'\n'.join(missing)+'\nRun python -m analysis.deep_learning.prepare with the provided data first.')
         self.manifest=json.loads((self.root/'manifest.json').read_text())
@@ -24,13 +24,24 @@ class DayCache:
         if self.composition.to_dict('records')!=self.manifest['composition']: raise ValueError('Composition changed')
         self.days=pd.DatetimeIndex([aware(x) for x in self.manifest['days']]).as_unit('ns')
         self.num_sites=len(self.sites)
+        self.compact=self.manifest.get('layout')=='station_month_v1'
+        if self.compact:
+            from .compact import init_compact
+            init_compact(self)
         if self.static.shape!=(self.num_sites,5) or not np.allclose(self.static,self.sites[['capacity_kw','lat','lon','wa_dist','wb_dist']].to_numpy(),equal_nan=True): raise ValueError('Static mmap and canonical site metadata differ')
         shape=(len(self.days),self.num_sites,24)
         if self.weather.shape!=shape+(len(self.manifest['weather_features']),) or self.target.shape!=shape or self.energy.shape!=shape or self.temporal.shape!=shape+(len(self.manifest['temporal_features']),): raise ValueError('Cache array schema mismatch')
-    def __getstate__(self): return {k:v for k,v in self.__dict__.items() if k!='_arrays'}|{'_arrays':{}}
+    def __getstate__(self): return {k:v for k,v in self.__dict__.items() if k not in ['_arrays','_months','_temporal_day']}|{'_arrays':{},'_months':__import__('collections').OrderedDict(),'_temporal_day':None}
+    def _month(self,day):
+        from .compact import month
+        return month(self,day)
     def __getattr__(self,name):
         if name in ['weather','temporal','target','energy','missing_kind','static','smp','k']:
-            if name not in self._arrays: self._arrays[name]=np.load(self.root/(name+'.npy'),mmap_mode='r',allow_pickle=False)
+            if name not in self._arrays:
+                if self.__dict__.get('compact',False) and name!='static':
+                    from .compact import CompactArray
+                    self._arrays[name]=CompactArray(self,name)
+                else: self._arrays[name]=np.load(self.root/(name+'.npy'),mmap_mode='r',allow_pickle=False)
             return self._arrays[name]
         raise AttributeError(name)
 

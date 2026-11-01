@@ -48,4 +48,8 @@ def loader(dataset,training,config,generator=None):
     return DataLoader(dataset,batch_size=config['batch_size'],shuffle=training,num_workers=workers,pin_memory=config.get('pin_memory',True) and torch.cuda.is_available(),persistent_workers=workers>0 and config.get('persistent_workers',True),worker_init_fn=worker_init,generator=generator,drop_last=False,multiprocessing_context='spawn' if workers>0 else None)
 
 def append_log(file,value):
-    with Path(file).open('a') as f: f.write(json.dumps(value,allow_nan=False)+'\n')
+    from .storage import result_guard
+    text=json.dumps(value,allow_nan=False)+'\n'
+    if Path(file).exists() and Path(file).stat().st_size+len(text.encode())>64*1024**2: raise OSError(f'Log size limit (64 MiB): {file}')
+    result_guard(file,len(text.encode()))
+    with Path(file).open('a') as f: f.write(text)

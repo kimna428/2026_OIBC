@@ -19,11 +19,13 @@ class PipelineTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         torch.set_num_threads(2); cls.temp=tempfile.TemporaryDirectory(); cls.root=Path(cls.temp.name)
+        from unittest.mock import patch
+        cls.storage_env=patch.dict('os.environ',{'OIBC_STORAGE_ROOT':str(cls.root)}); cls.storage_env.start()
         synthetic_cache(cls.root/'cache'); cls.cache=DayCache(cls.root/'cache/train')
         cls.config=smoke_config('cnn',cls.root/'cache',cls.root); cls.config['_smoke_test']=True
         cls.plan=split_plan(cls.config,cls.cache,'development'); cls.stats=fit_normalizer(cls.cache,cls.plan['cutoff'])
     @classmethod
-    def tearDownClass(cls): cls.temp.cleanup()
+    def tearDownClass(cls): cls.storage_env.stop(); cls.temp.cleanup()
     def batch(self,model):
         data=DayDataset(self.cache,self.stats,self.plan,'train',model=='cross_site')
         return next(iter(DataLoader(data,batch_size=1)))

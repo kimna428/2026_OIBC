@@ -79,6 +79,8 @@ def main():
         else:
             if stored['smoke_test'] and not args.smoke_test: raise ValueError('Synthetic weights cannot be used for real predictions')
             if split=='test' and cache.manifest['kind']=='provided' and len(days)*24!=8760: raise ValueError('Incomplete official test grid')
+            from .storage import result_guard
+            result_guard(output,int(np.prod(grids[0].shape))*4+4096)
             grid=np.lib.format.open_memmap(output.with_suffix('.npy'),mode='w+',dtype='float32',shape=grids[0].shape)
             for i in range(len(days)): grid[i]=sum(w*np.asarray(g[i]) for w,g in zip(stored['weights'],grids))
             grid.flush()

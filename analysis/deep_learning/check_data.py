@@ -4,6 +4,7 @@ from pathlib import Path
 import numpy as np
 from .config import ROOT,path
 from .dataset import DayCache
+from .storage import tree_bytes
 from .prepare import inspect_inputs,sha
 
 def main():
@@ -11,7 +12,7 @@ def main():
     signatures=[]
     for partition in (['train','test'] if args.partition=='both' else [args.partition]):
         c=DayCache(path(args.cache_root)/partition); signatures.append(c.manifest['feature_signature'])
-        summary={'partition':partition,'kind':c.manifest['kind'],'days':len(c.days),'sites':c.num_sites,'weather_shape':list(c.weather.shape),'target_shape':list(c.target.shape),'observed_targets':c.manifest['observed_targets'],'schema':'passed','synthetic_performance_claim':False}
+        summary={'partition':partition,'kind':c.manifest['kind'],'days':len(c.days),'sites':c.num_sites,'weather_shape':list(c.weather.shape),'target_shape':list(c.target.shape),'observed_targets':c.manifest['observed_targets'],'schema':'passed','layout':c.manifest.get('layout','legacy'),'actual_cache_bytes':tree_bytes(c.root),'synthetic_performance_claim':False}
         if args.scan:
             count=0
             for day in range(len(c.days)):

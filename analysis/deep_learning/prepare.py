@@ -62,8 +62,27 @@ def prepared_partition(prepared,start,end,base_columns):
         if len(d): result.append(d)
     return pd.concat(result,ignore_index=True) if result else pd.DataFrame(columns=base_columns)
 
-def prepare(data,cache_root,prepared_root=None,start=None,end=None,partitions=('train','test')):
+def prepare(data,cache_root,prepared_root=None,start=None,end=None,partitions=('train','test'),layout='compact',cache_max_gib=2.,dry_run=False):
     data=Path(data); cache_root=Path(cache_root); sites,cols=inspect_inputs(data)
+    if layout not in ['compact','legacy'] or not np.isfinite(cache_max_gib) or cache_max_gib<=0: raise ValueError('Invalid layout/cache budget')
+    # Preflight all selected partitions before hashing/building or allocating any cache.
+    from .compact import estimate, MonthlyWriter
+    from .storage import guard, GIB, tree_bytes
+    estimates={}; legacy_estimates={}
+    for partition in partitions:
+        price=pd.read_csv(data/('train/smp.csv' if partition=='train' else 'smp.csv'))
+        ds=operating_day(local_hours(pd.to_datetime(price.ts))).unique()
+        if start: ds=ds[ds>=pd.Timestamp(start,tz='Asia/Seoul')]
+        if end: ds=ds[ds<pd.Timestamp(end,tz='Asia/Seoul')]
+        if not len(ds): raise ValueError(f'No {partition} days selected')
+        estimates[partition]=estimate(len(ds),sites,layout)
+        legacy_estimates[partition]=estimate(len(ds),sites,'legacy')
+        dest=cache_root/partition
+        if dest.exists() and any(dest.iterdir()): raise FileExistsError(f'Cache exists: {dest}; choose a new cache directory; nothing is deleted')
+    report={'layout':layout,'estimated_bytes':estimates,'legacy_estimated_bytes':legacy_estimates,'cache_max_bytes':int(cache_max_gib*GIB)}
+    report['storage']=guard(cache_root,sum(estimates.values()),budget_root=cache_root,limit=int(cache_max_gib*GIB))
+    print(json.dumps(report,indent=2),flush=True)
+    if dry_run: return report
     raw_hashes={p:sha(data/p) for p in REQUIRED}
     reuse=False; prepared=Path(prepared_root) if prepared_root else None
     if prepared and (prepared/'manifest.json').exists() and all((prepared/f'{n}.parquet').exists() for n in ['train','dev','holdout','test']):
@@ -100,7 +119,8 @@ def prepare(data,cache_root,prepared_root=None,start=None,end=None,partitions=('
         shape=(len(days),253,24); wlen=len(feature_spec['weather_features'])
         arrays={}
         specs={'weather':(shape+(wlen,),'float32',np.nan),'temporal':(shape+(len(TIME),),'float32',np.nan),'target':(shape,'float64',np.nan),'energy':(shape,'float64',np.nan),'missing_kind':(shape,'uint8',5),'smp':((len(days),24),'float64',np.nan),'k':((len(days),24),'float32',np.nan)}
-        for name,(size,dtype,fill) in specs.items():
+        writer=MonthlyWriter(dest,sites,feature_spec['weather_features']) if layout=='compact' else None
+        for name,(size,dtype,fill) in (specs.items() if writer is None else []):
             arrays[name]=np.lib.format.open_memmap(dest/f'{name}.npy',mode='w+',dtype=dtype,shape=size)
             # Initialize by chunks to avoid a separate full-memory allocation.
             for i in range(0,len(days),31): arrays[name][i:i+31]=fill
@@ -138,15 +158,16 @@ def prepare(data,cache_root,prepared_root=None,start=None,end=None,partitions=('
                 for c in cols[provider]: values[c+'_r10']=joined[c].astype('float32'); values[c+'_revision']=values[c]-values[c+'_r10']
             for r in [10,17]: assert_asof(issuance(times)-pd.Timedelta(hours=17-r),times)
             raw=np.stack([values[c] for c in feature_spec['weather_features']],axis=-1).reshape(len(selected),24,253,wlen).transpose(0,2,1,3)
-            temporal=temporal_features(times,sites).reshape(len(selected),24,253,len(TIME)).transpose(0,2,1,3)
+            temporal=temporal_features(times,sites).reshape(len(selected),24,253,len(TIME)).transpose(0,2,1,3) if writer is None else None
             energy=base.energy.to_numpy(dtype=float).reshape(len(selected),24,253).transpose(0,2,1)
             if partition=='test' and np.isfinite(energy).any(): raise ValueError('Test contains labels')
             target=energy/sites.capacity_kw.to_numpy()[None,:,None]
             if np.isinf(raw).any(): raise ValueError('Infinite forecast values')
-            arrays['weather'][positions]=raw; arrays['temporal'][positions]=temporal; arrays['energy'][positions]=energy; arrays['target'][positions]=target
-            arrays['smp'][positions]=subset_prices.set_index('ts').smp.reindex(times).to_numpy().reshape(len(selected),24)
+            if writer is None:
+                arrays['weather'][positions]=raw; arrays['temporal'][positions]=temporal; arrays['energy'][positions]=energy; arrays['target'][positions]=target
+            month_smp=subset_prices.set_index('ts').smp.reindex(times).to_numpy().reshape(len(selected),24)
             from analysis.validation import hourly_weights
-            arrays['k'][positions]=hourly_weights(times).reshape(len(selected),24)
+            month_k=hourly_weights(times).reshape(len(selected),24)
             kind=np.zeros_like(energy,dtype='uint8')
             if partition=='test': kind[:]=5
             else:
@@ -157,12 +178,19 @@ def prepare(data,cache_root,prepared_root=None,start=None,end=None,partitions=('
                         ts=times.to_numpy().reshape(len(selected),24)
                         category=np.where(ts<first,1,np.where(ts>last,3,2))
                         kind[:,j,:]=np.where(missing,category,0)
-            arrays['missing_kind'][positions]=kind; observed+=int(np.isfinite(energy).sum())
+            if writer is None:
+                arrays['missing_kind'][positions]=kind; arrays['smp'][positions]=month_smp; arrays['k'][positions]=month_k
+            else:
+                guard(dest,estimate(len(selected),sites,'compact'),budget_root=cache_root,limit=int(cache_max_gib*GIB))
+                writer.write(month,positions,raw,energy,kind,month_smp,month_k)
+            observed+=int(np.isfinite(energy).sum())
             with source.open('a') as f: f.write(json.dumps({'month':month,'days':len(selected),'rounds':[10,17],'forecast_keys':key_info,'asof_violations':0,'reused_round17_parquet':reuse})+'\n')
             print(f'{partition} {month}: {len(selected)} days',flush=True)
         for a in arrays.values(): a.flush()
         if partition=='train' and not start and not end and observed!=raw_rows: raise ValueError('Cache target coverage differs from original generation')
         manifest=feature_spec|{'kind':'provided','partition':partition,'start':str(days.min().date()),'end_exclusive':str((days.max()+pd.Timedelta(days=1)).date()),'test_start':str(operating_day(prices_by_part['test'].ts).min().date()),'days':[str(d.date()) for d in days],'num_sites':253,'shape':list(shape),'feature_signature':feature_signature,'observed_targets':observed,'missing_kind_codes':{'observed':0,'pre_first':1,'internal':2,'post_last':3,'no_history':4,'test_unlabelled':5},'bounds':{k:[str(v[0]),str(v[1])] for k,v in bounds.items()},'reused_round17_parquet':reuse}
+        if writer is not None: manifest.update(writer.metadata())
+        manifest['storage']={'estimated_bytes':estimates[partition],'legacy_estimated_bytes':legacy_estimates[partition],'actual_array_bytes':tree_bytes(dest),'cache_max_bytes':int(cache_max_gib*GIB)}
         manifest['signature']=fingerprint(manifest)
         (dest/'manifest.pending.json').write_text(json.dumps(manifest,indent=2)); pending.append(dest)
     if raw_hashes!={p:sha(data/p) for p in REQUIRED}: raise ValueError('Original inputs changed; pending caches are not usable')
@@ -170,8 +198,8 @@ def prepare(data,cache_root,prepared_root=None,start=None,end=None,partitions=('
 
 def main():
     import os
-    p=argparse.ArgumentParser(); p.add_argument('--data-root',default=os.environ.get('OIBC_DATA_ROOT',str(ROOT/'handover 2/01_participant_dataset'))); p.add_argument('--cache-root',default=os.environ.get('OIBC_CACHE_ROOT',str(ROOT/'analysis/deep_learning/cache'))); p.add_argument('--prepared-root',default=str(ROOT/'analysis/datasets')); p.add_argument('--check-only',action='store_true'); p.add_argument('--start'); p.add_argument('--end'); p.add_argument('--partition',choices=['train','test','both'],default='both'); args=p.parse_args()
+    p=argparse.ArgumentParser(); p.add_argument('--data-root',default=os.environ.get('OIBC_DATA_ROOT',str(ROOT/'handover 2/01_participant_dataset'))); p.add_argument('--cache-root',default=os.environ.get('OIBC_CACHE_ROOT',str(ROOT/'analysis/deep_learning/cache'))); p.add_argument('--prepared-root',default=str(ROOT/'analysis/datasets')); p.add_argument('--check-only',action='store_true'); p.add_argument('--start'); p.add_argument('--end'); p.add_argument('--layout',choices=['compact','legacy'],default='compact'); p.add_argument('--cache-max-gib',type=float,default=float(os.environ.get('OIBC_CACHE_MAX_GIB','2'))); p.add_argument('--dry-run',action='store_true'); p.add_argument('--partition',choices=['train','test','both'],default='both'); args=p.parse_args()
     inspect_inputs(Path(args.data_root))
     if args.check_only: print('Provided files and schemas are present; no cache generated.'); return
-    prepare(args.data_root,args.cache_root,args.prepared_root,args.start,args.end,('train','test') if args.partition=='both' else (args.partition,))
+    prepare(args.data_root,args.cache_root,args.prepared_root,args.start,args.end,('train','test') if args.partition=='both' else (args.partition,),args.layout,args.cache_max_gib,args.dry_run)
 if __name__=='__main__': main()
