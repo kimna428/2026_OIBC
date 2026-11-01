@@ -1,0 +1,21 @@
+{
+  "partition": "train",
+  "kind": "provided",
+  "days": 2,
+  "sites": 253,
+  "weather_shape": [
+    2,
+    253,
+    24,
+    90
+  ],
+  "target_shape": [
+    2,
+    253,
+    24
+  ],
+  "observed_targets": 12144,
+  "schema": "passed",
+  "synthetic_performance_claim": false,
+  "scan": "passed"
+}

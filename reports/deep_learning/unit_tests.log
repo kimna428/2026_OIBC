@@ -1,0 +1,84 @@
+Matplotlib is building the font cache; this may take a moment.
+test_all_missing_metadata_attention_is_finite (deep_learning.tests.test_pipeline.PipelineTests.test_all_missing_metadata_attention_is_finite) ... ok
+test_checkpoint_and_rng_roundtrip (deep_learning.tests.test_pipeline.PipelineTests.test_checkpoint_and_rng_roundtrip) ... ok
+test_config_and_parameter_sizes (deep_learning.tests.test_pipeline.PipelineTests.test_config_and_parameter_sizes) ... ok
+test_cross_site_order_and_no_target_attention_mask (deep_learning.tests.test_pipeline.PipelineTests.test_cross_site_order_and_no_target_attention_mask) ... ok
+test_ensemble_simplex_and_original_complete_mask (deep_learning.tests.test_pipeline.PipelineTests.test_ensemble_simplex_and_original_complete_mask) ... ok
+test_fold_contract_matches_existing_pipeline (deep_learning.tests.test_pipeline.PipelineTests.test_fold_contract_matches_existing_pipeline) ... ok
+test_full_cpu_training_is_blocked (deep_learning.tests.test_pipeline.PipelineTests.test_full_cpu_training_is_blocked) ... ok
+test_future_development_window_rejected (deep_learning.tests.test_pipeline.PipelineTests.test_future_development_window_rejected) ... ok
+test_future_group_assignment_rejected (deep_learning.tests.test_pipeline.PipelineTests.test_future_group_assignment_rejected) ... ok
+test_gpu_process_lock_without_cuda_allocation (deep_learning.tests.test_pipeline.PipelineTests.test_gpu_process_lock_without_cuda_allocation) ... ok
+test_group_loss_requires_full_fleet (deep_learning.tests.test_pipeline.PipelineTests.test_group_loss_requires_full_fleet) ... /Users/kimna/workspace/2026_3_2/2026_OIBC/analysis/deep_learning/tests/test_pipeline.py:73: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /Users/runner/work/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:821.)
+  loss,info=compute_loss(p,b,{'name':'l1'},group,torch.tensor([0]*126+[1]*127)); self.assertEqual(info['group_mass'],0); self.assertEqual(float(loss),0)
+ok
+test_k_weight_is_interval_end_hour (deep_learning.tests.test_pipeline.PipelineTests.test_k_weight_is_interval_end_hour) ... ok
+test_midnight_and_future (deep_learning.tests.test_pipeline.PipelineTests.test_midnight_and_future) ... ok
+test_missing_data_does_not_create_synthetic_fallback (deep_learning.tests.test_pipeline.PipelineTests.test_missing_data_does_not_create_synthetic_fallback) ... ok
+test_missing_weather_and_missing_targets_are_distinct (deep_learning.tests.test_pipeline.PipelineTests.test_missing_weather_and_missing_targets_are_distinct) ... ok
+test_mmap_can_be_reopened_after_pickle (deep_learning.tests.test_pipeline.PipelineTests.test_mmap_can_be_reopened_after_pickle) ... ok
+test_nan_target_mask_and_gradient (deep_learning.tests.test_pipeline.PipelineTests.test_nan_target_mask_and_gradient) ... ok
+test_normalization_and_embedding_do_not_see_future_labels (deep_learning.tests.test_pipeline.PipelineTests.test_normalization_and_embedding_do_not_see_future_labels) ... ok
+test_official_scorer_bridge_and_incomplete_hours (deep_learning.tests.test_pipeline.PipelineTests.test_official_scorer_bridge_and_incomplete_hours) ... ok
+test_real_config_small_forward_backward (deep_learning.tests.test_pipeline.PipelineTests.test_real_config_small_forward_backward) ... ok
+test_spawn_workers_read_mmap_batches (deep_learning.tests.test_pipeline.PipelineTests.test_spawn_workers_read_mmap_batches) ... ok
+test_target_not_a_feature (deep_learning.tests.test_pipeline.PipelineTests.test_target_not_a_feature) ... ok
+test_three_models_forward_backward (deep_learning.tests.test_pipeline.PipelineTests.test_three_models_forward_backward) ... ok
+test_training_masks_partial_last_day (deep_learning.tests.test_pipeline.PipelineTests.test_training_masks_partial_last_day) ... ok
+test_unknown_site_embedding_is_zero_and_fallback_works (deep_learning.tests.test_pipeline.PipelineTests.test_unknown_site_embedding_is_zero_and_fallback_works) ... ok
+test_weighted_and_normalized_huber_losses (deep_learning.tests.test_pipeline.PipelineTests.test_weighted_and_normalized_huber_losses) ... ok
+test_duplicate_generation_key_rejected (test_expanding_pipeline.DayAheadTests.test_duplicate_generation_key_rejected) ... ok
+test_future_perturbation_does_not_change_history (test_expanding_pipeline.DayAheadTests.test_future_perturbation_does_not_change_history) ... ok
+test_future_source_rejected (test_expanding_pipeline.DayAheadTests.test_future_source_rejected) ... ok
+test_interpolation_endpoint_must_be_available (test_expanding_pipeline.DayAheadTests.test_interpolation_endpoint_must_be_available) ... ok
+test_interpolation_rejects_anomalous_endpoints (test_expanding_pipeline.DayAheadTests.test_interpolation_rejects_anomalous_endpoints) ... ok
+test_midnight_belongs_to_previous_day (test_expanding_pipeline.DayAheadTests.test_midnight_belongs_to_previous_day) ... ok
+test_naive_rejected (test_expanding_pipeline.DayAheadTests.test_naive_rejected) ... ok
+test_no_extrapolation_or_long_gap_interpolation (test_expanding_pipeline.DayAheadTests.test_no_extrapolation_or_long_gap_interpolation) ... ok
+test_training_cutoff (test_expanding_pipeline.DayAheadTests.test_training_cutoff) ... ok
+test_cardinality_targets_flags_and_raw_units (test_feature_pipeline.FeatureTests.test_cardinality_targets_flags_and_raw_units) ... ok
+test_duplicate_and_future_round_rejected (test_feature_pipeline.FeatureTests.test_duplicate_and_future_round_rejected) ... ok
+test_duplicate_target_rejected (test_feature_pipeline.FeatureTests.test_duplicate_target_rejected) ... ok
+test_off_hour_forecast_is_not_rounded (test_feature_pipeline.FeatureTests.test_off_hour_forecast_is_not_rounded) ... ok
+test_operating_day_and_schema (test_feature_pipeline.FeatureTests.test_operating_day_and_schema) ... ok
+test_only_round17_and_site_station_join (test_forecast_baseline.ForecastBaselineTests.test_only_round17_and_site_station_join) ... ok
+test_peak_boundaries_and_residual_sign (test_forecast_baseline.ForecastBaselineTests.test_peak_boundaries_and_residual_sign) ... ok
+test_categories_and_nan_preserved (test_lightgbm_baseline.BaselineTests.test_categories_and_nan_preserved) ... ok
+test_metrics_units_and_peak (test_lightgbm_baseline.BaselineTests.test_metrics_units_and_peak) ... ok
+test_postprocessing (test_lightgbm_baseline.BaselineTests.test_postprocessing) ... ok
+test_train_only_fallback (test_lightgbm_baseline.BaselineTests.test_train_only_fallback) ... ok
+test_calibration_future_target_rejected (test_third_experiment.ThirdExperimentTests.test_calibration_future_target_rejected) ... ok
+test_calibration_policy_uses_supplied_thresholds (test_third_experiment.ThirdExperimentTests.test_calibration_policy_uses_supplied_thresholds) ... ok
+test_frozen_history_cannot_read_later_arrivals (test_third_experiment.ThirdExperimentTests.test_frozen_history_cannot_read_later_arrivals) ... ok
+test_group_capacity_and_monotonic_penalty (test_third_experiment.ThirdExperimentTests.test_group_capacity_and_monotonic_penalty) ... ok
+test_history_mixed_timestamp_resolution (test_third_experiment.ThirdExperimentTests.test_history_mixed_timestamp_resolution) ... ok
+test_holdout_selection_rejected (test_third_experiment.ThirdExperimentTests.test_holdout_selection_rejected) ... ok
+test_latest_history_is_not_future (test_third_experiment.ThirdExperimentTests.test_latest_history_is_not_future) ... ok
+test_midnight_issue_is_previous_operating_day (test_third_experiment.ThirdExperimentTests.test_midnight_issue_is_previous_operating_day) ... ok
+test_missing_group_target_rejected (test_third_experiment.ThirdExperimentTests.test_missing_group_target_rejected) ... ok
+test_operating_boundaries (test_third_experiment.ThirdExperimentTests.test_operating_boundaries) ... ok
+test_parameter_schedule_rejects_holdout (test_third_experiment.ThirdExperimentTests.test_parameter_schedule_rejects_holdout) ... ok
+test_parameter_selection_respects_issue_clock (test_third_experiment.ThirdExperimentTests.test_parameter_selection_respects_issue_clock) ... ok
+test_partial_sun_interval_preserved (test_third_experiment.ThirdExperimentTests.test_partial_sun_interval_preserved) ... ok
+test_preferred_candidate_is_locked_before_holdout (test_third_experiment.ThirdExperimentTests.test_preferred_candidate_is_locked_before_holdout) ... ok
+test_sample_is_train_only_and_excludes_anomalies (test_third_experiment.ThirdExperimentTests.test_sample_is_train_only_and_excludes_anomalies) ... ok
+test_selection_does_not_need_holdout (test_third_experiment.ThirdExperimentTests.test_selection_does_not_need_holdout) ... ok
+test_split_strict_issuance (test_third_experiment.ThirdExperimentTests.test_split_strict_issuance) ... ok
+test_twilight_not_clipped_by_night_only (test_third_experiment.ThirdExperimentTests.test_twilight_not_clipped_by_night_only) ... ok
+test_boundaries_and_utc (test_validation.ValidationTests.test_boundaries_and_utc) ... ok
+test_build_windows_missing_nonfinite_and_duplicates (test_validation.ValidationTests.test_build_windows_missing_nonfinite_and_duplicates) ... ok
+test_duplicate_group (test_validation.ValidationTests.test_duplicate_group) ... ok
+test_duplicate_site (test_validation.ValidationTests.test_duplicate_site) ... ok
+test_hand_calculated_penalty (test_validation.ValidationTests.test_hand_calculated_penalty) ... ok
+test_invalid_predictions (test_validation.ValidationTests.test_invalid_predictions) ... ok
+test_missing_actual_fixed_mask_and_site_evaluation (test_validation.ValidationTests.test_missing_actual_fixed_mask_and_site_evaluation) ... ok
+test_missing_forecast_fails (test_validation.ValidationTests.test_missing_forecast_fails) ... ok
+test_partition_failures (test_validation.ValidationTests.test_partition_failures) ... ok
+test_partition_invariant_revenue (test_validation.ValidationTests.test_partition_invariant_revenue) ... ok
+test_perfect_and_units (test_validation.ValidationTests.test_perfect_and_units) ... ok
+
+----------------------------------------------------------------------
+Ran 75 tests in 14.950s
+
+OK

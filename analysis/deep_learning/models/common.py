@@ -25,7 +25,11 @@ class InputEncoder(nn.Module):
         ids=b['site_index'].long()
         if self.training and self.site_dropout:
             ids=torch.where(torch.rand(ids.shape,device=ids.device)<self.site_dropout,torch.zeros_like(ids),ids)
-        condition=self.condition(torch.cat([self.embedding(ids),self.static(b['static'])],dim=-1))
+        static=b['static']
+        if self.training and self.site_dropout and static.shape[-1]>10:
+            keep=(torch.rand(static.shape[:-1]+(1,),device=static.device)>=self.site_dropout).to(static.dtype)
+            static=torch.cat([static[...,:10],static[...,10:]*keep],dim=-1)
+        condition=self.condition(torch.cat([self.embedding(ids),self.static(static)],dim=-1))
         weather=torch.cat([b['weather'],b['weather_missing'].to(b['weather'].dtype),b['temporal']],dim=-1)
         return self.weather(weather)+condition.unsqueeze(-2)
 

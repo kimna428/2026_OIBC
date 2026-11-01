@@ -32,15 +32,45 @@ def assert_allowed(names):
     if FORBIDDEN.intersection(names): raise ValueError(f'Forbidden model features: {FORBIDDEN.intersection(names)}')
     if len(set(names))!=len(names): raise ValueError('Duplicate model features')
 
-def solar_elevation(times,lat,lon):
-    # Same analytic midpoint approximation as expanding_pipeline.solar; no CatBoost dependency.
-    t=local_hours(times)-pd.Timedelta(minutes=30)
+def point_elevation(times,lat,lon):
+    t=pd.DatetimeIndex(times).tz_convert("Asia/Seoul")
     gamma=2*np.pi*(t.dayofyear.to_numpy()-1)/365.25
     dec=np.deg2rad(23.44)*np.sin(gamma-1.39)
     eq=229.18*(.000075+.001868*np.cos(gamma)-.032077*np.sin(gamma)-.014615*np.cos(2*gamma)-.040849*np.sin(2*gamma))
     hour=t.hour.to_numpy()+t.minute.to_numpy()/60+(np.asarray(lon)-135)/15+eq/60
     angle=np.deg2rad(15*(hour-12)); p=np.deg2rad(np.asarray(lat))
     return np.rad2deg(np.arcsin(np.clip(np.sin(p)*np.sin(dec)+np.cos(p)*np.cos(dec)*np.cos(angle),-1,1))).astype('float32')
+
+def solar_elevation(times,lat,lon):
+    # Same midpoint approximation as expanding_pipeline.solar, without CatBoost imports.
+    return point_elevation(local_hours(times)-pd.Timedelta(minutes=30),lat,lon)
+
+def interval_max(times,sites):
+    t=local_hours(times).repeat(len(sites)); lat=np.tile(sites.lat,len(times)); lon=np.tile(sites.lon,len(times))
+    return np.maximum.reduce([point_elevation(t-pd.Timedelta(hours=1),lat,lon),point_elevation(t-pd.Timedelta(minutes=30),lat,lon),point_elevation(t,lat,lon)]).reshape(len(times),len(sites)).T
+
+def fit_night_thresholds(cache,cutoff):
+    counts=np.zeros((cache.num_sites,5),dtype=int); maxima=np.full((cache.num_sites,5),-np.inf)
+    candidates=np.array([-12.,-9.,-6.,-3.,0.]); cutoff=aware(cutoff)
+    for d,day in enumerate(cache.days):
+        times=day_hours(day)
+        if times.min()>cutoff: break
+        alt=interval_max(times,cache.sites); y=np.asarray(cache.target[d])
+        for j,t in enumerate(candidates):
+            valid=np.isfinite(y)&(alt<=t)&(times.asi8[None,:]<=cutoff.value)
+            counts[:,j]+=valid.sum(axis=1)
+            maxima[:,j]=np.maximum(maxima[:,j],np.where(valid,y,-np.inf).max(axis=1))
+    result=np.full(cache.num_sites,-6.)
+    for j,t in enumerate(candidates): result[(counts[:,j]>=168)&(maxima[:,j]<=.001)]=t
+    return result.tolist()
+
+def apply_postprocess(pred,cache,day,normalizer,policy):
+    result=np.maximum(np.asarray(pred,dtype=float),0)
+    if policy=='none': return result
+    if policy not in ['night_only','train_calibrated']: raise ValueError('Invalid night postprocessing')
+    cut=-6. if policy=='night_only' else np.asarray(normalizer['night_thresholds'])[:,None]
+    result[interval_max(day_hours(cache.days[day]),cache.sites)<=cut]=0
+    return result
 
 def temporal_features(times,sites):
     t=local_hours(times); day=operating_day(t); s=len(sites)
@@ -50,13 +80,15 @@ def temporal_features(times,sites):
     elevation=solar_elevation(t.repeat(s),np.tile(sites.lat,len(t)),np.tile(sites.lon,len(t))).reshape(len(t),s)
     return np.concatenate([a,elevation[...,None]],axis=-1).astype('float32')
 
-def static_features(sites,categories):
+def static_features(sites,categories,station_seen=None):
     values=sites[STATIC].to_numpy(dtype='float32')
     flags=~np.isfinite(values)
     onehot=[]
     for p in ['wa','wb']:
         ids=sites[p+'_station'].map({v:i+1 for i,v in enumerate(categories[p])}).fillna(0).to_numpy(dtype=int)
-        onehot.append(np.eye(len(categories[p])+1,dtype='float32')[ids])
+        if station_seen is not None: ids=np.where(sites[p+'_station'].isin(station_seen[p]).to_numpy(),ids,0)
+        encoded=np.eye(len(categories[p])+1,dtype='float32')[ids]; encoded[ids==0]=0
+        onehot.append(encoded)
     valid=np.isfinite(values[:,:3]).all(axis=1)
     return values,flags,np.concatenate(onehot,axis=1),valid
 
@@ -79,6 +111,8 @@ def normalize(x,stats):
 
 def split_plan(config,cache,phase):
     split=config['split']; start,end=FOLDS[split['outer_fold']]
+    if cache.manifest['kind']=='synthetic_smoke' and config.get('_smoke_test',False):
+        start,end=split['smoke_outer_start'],split['smoke_outer_end']
     outer_issue=aware(start)-pd.Timedelta(days=1)+pd.Timedelta(hours=17)
     dev_start,dev_end=aware(split['dev_start']),aware(split['dev_end'])
     if dev_end<=dev_start or dev_end>outer_issue: raise ValueError('Development targets cross outer issuance cutoff')
@@ -99,4 +133,4 @@ def fit_normalizer(cache,cutoff):
         counts+=eligible.sum(axis=1)
     if not counts.sum(): raise ValueError('No valid historical training targets before cutoff')
     static=Moments(len(STATIC)); static.add(cache.static[counts>0])
-    return {'weather':w.finish(),'temporal':t.finish(),'static':static.finish(),'seen_hours':counts.tolist(),'fit_cutoff':str(cutoff),'cache_signature':cache.manifest['signature']}
+    return {'weather':w.finish(),'temporal':t.finish(),'static':static.finish(),'seen_hours':counts.tolist(),'fit_cutoff':str(cutoff),'cache_signature':cache.manifest['signature'],'night_thresholds':fit_night_thresholds(cache,cutoff),'station_seen':{p:cache.sites.loc[counts>0,p+'_station'].dropna().unique().tolist() for p in ['wa','wb']}}

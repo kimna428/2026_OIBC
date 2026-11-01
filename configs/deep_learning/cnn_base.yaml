@@ -1,0 +1,47 @@
+name: cnn_base
+model:
+  name: cnn
+  width: 352
+  depth: 5
+  kernel_size: 7
+  expansion: 4
+  dropout: 0.1
+  gradient_checkpointing: false
+  site_dropout: 0.1
+data:
+  data_root: ${OIBC_DATA_ROOT:-handover 2/01_participant_dataset}
+  cache_root: ${OIBC_CACHE_ROOT:-analysis/deep_learning/cache}
+split:
+  outer_fold: 5
+  dev_start: '2025-02-01'
+  dev_end: '2025-02-28'
+loss:
+  name: weighted_l1
+  huber_delta: 0.05
+group:
+  enabled: false
+  alpha: 1.0
+  beta: 0.0
+  composition_path: null
+  available_at: null
+training:
+  phase: development
+  device: cuda
+  precision: auto
+  seed: 2026
+  deterministic: true
+  batch_size: 128
+  accumulation_steps: 1
+  num_workers: 4
+  persistent_workers: true
+  pin_memory: true
+  learning_rate: 0.0003
+  weight_decay: 0.01
+  epochs: 40
+  patience: 6
+  min_delta: 0.0
+  warmup_steps: 100
+  gradient_clip: 1.0
+  selection_metric: penalty_per_hour
+  postprocess: train_calibrated
+  save_root: ${OIBC_RUN_ROOT:-runs/deep_learning}

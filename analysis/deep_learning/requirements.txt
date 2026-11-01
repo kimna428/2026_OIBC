@@ -1,0 +1,6 @@
+# Install torch separately using an explicit driver-compatible official wheel index.
+# Tested local CPU API: torch==2.15.0; code requires torch>=2.5,<3.
+numpy>=1.26,<3
+pandas>=2.2,<4
+pyarrow>=15,<30
+PyYAML==6.0.3

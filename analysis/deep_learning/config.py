@@ -30,4 +30,6 @@ def load_config(filename):
     if c['training']['batch_size']<1 or c['training']['accumulation_steps']<1: raise ValueError('Invalid batch/accumulation')
     if c['group']['enabled'] and c['model']['name']!='cross_site': raise ValueError('Group loss needs full-fleet batches')
     if c['loss']['name'] not in ['huber','l1','weighted_l1']: raise ValueError('Unknown loss')
+    if c['group']['alpha']<0 or c['group']['beta']<0 or c['group']['alpha']+c['group']['beta']==0: raise ValueError('Loss alpha/beta must be nonnegative with nonzero total')
+    if not c['group']['enabled'] and c['group']['beta']!=0: raise ValueError('Disabled group loss must have beta=0')
     return copy.deepcopy(c)

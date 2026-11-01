@@ -78,11 +78,14 @@ def prepare(data,cache_root,prepared_root=None,start=None,end=None,partitions=('
     prices_by_part={p:pd.read_csv(data/('train/smp.csv' if p=='train' else 'smp.csv')) for p in ['train','test']}
     for p in prices_by_part.values():
         p.ts=local_hours(pd.to_datetime(p.ts)).as_unit('ns')
+        from analysis.validation import hourly_weights
+        if 'k' in p and not np.array_equal(p.k.to_numpy(),hourly_weights(p.ts)): raise ValueError('Provided SMP k differs from the official interval-end rule')
         if p.ts.duplicated().any() or not np.isfinite(p.smp).all() or (p.smp<0).any(): raise ValueError('Invalid SMP')
     composition=balanced_composition(sites)
     categories={p:sorted(sites[p+'_station'].dropna().unique().tolist()) for p in ['wa','wb']}
     feature_spec={'version':1,'weather_features':contract()['weather_features'],'temporal_features':TIME,'static_features':STATIC,'site_ids':sites.site_id.tolist(),'station_categories':categories,'composition':composition.to_dict('records'),'units':'Provided original units; train-only standardization','input_hashes':raw_hashes}
     feature_signature=fingerprint(feature_spec)
+    pending=[]
     for partition in partitions:
         prices=prices_by_part[partition]
         all_times=pd.DatetimeIndex(prices.ts)
@@ -118,7 +121,7 @@ def prepare(data,cache_root,prepared_root=None,start=None,end=None,partitions=('
                 key_info[provider]={'rows':len(d),'off_hour_rows':int((d.ts!=d.ts.dt.floor('h')).sum())}
                 weather[provider]=d[d['round']==17]; weather10[provider]=d[d['round']==10]
             if reuse:
-                needed=['ts','site_id','energy','smp','k']+STATIC+['wa_station','wb_station'] if False else ['ts','site_id','energy','smp','k']+STATIC+cols['wa']+cols['wb']
+                needed=['ts','site_id','energy','smp','k']+STATIC+cols['wa']+cols['wb']
                 base=read_range(prepared/'test.parquet',times.min(),times.max(),needed) if partition=='test' else prepared_partition(prepared,times.min(),times.max(),needed)
                 base=base.sort_values(['ts','site_id']).reset_index(drop=True)
                 if len(base)!=len(times)*253 or base.duplicated(['site_id','ts']).any(): raise ValueError('Existing Parquet grid cardinality differs')
@@ -139,6 +142,7 @@ def prepare(data,cache_root,prepared_root=None,start=None,end=None,partitions=('
             energy=base.energy.to_numpy(dtype=float).reshape(len(selected),24,253).transpose(0,2,1)
             if partition=='test' and np.isfinite(energy).any(): raise ValueError('Test contains labels')
             target=energy/sites.capacity_kw.to_numpy()[None,:,None]
+            if np.isinf(raw).any(): raise ValueError('Infinite forecast values')
             arrays['weather'][positions]=raw; arrays['temporal'][positions]=temporal; arrays['energy'][positions]=energy; arrays['target'][positions]=target
             arrays['smp'][positions]=subset_prices.set_index('ts').smp.reindex(times).to_numpy().reshape(len(selected),24)
             from analysis.validation import hourly_weights
@@ -160,8 +164,9 @@ def prepare(data,cache_root,prepared_root=None,start=None,end=None,partitions=('
         if partition=='train' and not start and not end and observed!=raw_rows: raise ValueError('Cache target coverage differs from original generation')
         manifest=feature_spec|{'kind':'provided','partition':partition,'start':str(days.min().date()),'end_exclusive':str((days.max()+pd.Timedelta(days=1)).date()),'test_start':str(operating_day(prices_by_part['test'].ts).min().date()),'days':[str(d.date()) for d in days],'num_sites':253,'shape':list(shape),'feature_signature':feature_signature,'observed_targets':observed,'missing_kind_codes':{'observed':0,'pre_first':1,'internal':2,'post_last':3,'no_history':4,'test_unlabelled':5},'bounds':{k:[str(v[0]),str(v[1])] for k,v in bounds.items()},'reused_round17_parquet':reuse}
         manifest['signature']=fingerprint(manifest)
-        (dest/'manifest.json').write_text(json.dumps(manifest,indent=2))
-    if raw_hashes!={p:sha(data/p) for p in REQUIRED}: raise ValueError('Original inputs changed')
+        (dest/'manifest.pending.json').write_text(json.dumps(manifest,indent=2)); pending.append(dest)
+    if raw_hashes!={p:sha(data/p) for p in REQUIRED}: raise ValueError('Original inputs changed; pending caches are not usable')
+    for dest in pending: (dest/'manifest.pending.json').replace(dest/'manifest.json')
 
 def main():
     import os

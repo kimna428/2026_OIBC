@@ -1,0 +1,121 @@
+{
+  "scope": "implementation and local CPU verification only",
+  "large_training_executed": false,
+  "real_data_training_executed": false,
+  "remote_connection_attempted": false,
+  "cuda_training_tested": false,
+  "cuda_memory_or_accuracy_measured": false,
+  "python": "3.13.12 (main, Mar 25 2026, 02:48:22) [Clang 22.1.1 ]",
+  "packages": {
+    "torch": "2.15.0",
+    "PyYAML": "6.0.3",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "pyarrow": "25.0.1"
+  },
+  "unit_tests": {
+    "passed": 75,
+    "failed": 0,
+    "deep_learning_tests": 26,
+    "legacy_tests": 49,
+    "multiworker_spawn": "passed outside sandbox; torch_shm_manager IPC blocked inside sandbox"
+  },
+  "synthetic_smoke": {
+    "cnn": {
+      "train_one_update": true,
+      "resume_to_two_updates": true,
+      "evaluate_cli": true,
+      "predict_and_submission_cli": true
+    },
+    "transformer": {
+      "train_one_update": true,
+      "resume_to_two_updates": true,
+      "evaluate_cli": true,
+      "predict_and_submission_cli": true
+    },
+    "cross_site": {
+      "train_one_update": true,
+      "resume_to_two_updates": true,
+      "evaluate_cli": true,
+      "predict_and_submission_cli": true
+    },
+    "extended": {
+      "frozen_ensemble_evaluation": true,
+      "refit_and_holdout_cli": true,
+      "production_and_test_cli": true,
+      "exact_resume_matches_continuous_two_updates": true,
+      "group_finetune_and_two_stage_refit": true,
+      "development_ensemble_and_refit_inference": true
+    }
+  },
+  "real_data_preprocessing": {
+    "kind": "provided_data_preprocessing_check_only",
+    "training_executed": false,
+    "days": 2,
+    "site_hours": 12144,
+    "parquet_reuse_and_raw_builder_match": true,
+    "arrays": [
+      "weather",
+      "temporal",
+      "target",
+      "energy",
+      "smp",
+      "k",
+      "missing_kind"
+    ],
+    "original_hashes_verified_before_after_prepare": true
+  },
+  "original_data_hashes_unchanged": true,
+  "server_only_checks_remaining": [
+    "CUDA kernels and AMP backward",
+    "RTX 3090 Ti 24GB peak VRAM and batch sizing",
+    "full training/early stopping runtime",
+    "real held-out accuracy and official settlement",
+    "long-run GPU resume reproducibility"
+  ],
+  "source_files": {
+    "analysis/deep_learning/__init__.py": "cb41e35019e977f73e75d725c3301e1049b0c8e2a3d3510af61d1db9f0ac613f",
+    "analysis/deep_learning/check_data.py": "d0a95dce64244814996074b8c1a1795530c8c04d6040bc0f025ac3d67c65312c",
+    "analysis/deep_learning/checkpoint.py": "9f2e795a3346292f4594520962f3ebdf4116ca43b2474210204e0b882727b1b4",
+    "analysis/deep_learning/config.py": "5dedf135c88bdad09dbce026bb4d8fdfa7bc3cdae9dc88789e78521e99ad9d31",
+    "analysis/deep_learning/dataset.py": "1e80ff98d27dc3f3937f24fe68a0ab3ef583f7172e9e3c79e81cb9920bdff04a",
+    "analysis/deep_learning/ensemble.py": "be99764b228f6e416105dc329aa280f2ca4a7163b93d0d08a4f1a4f744e5c957",
+    "analysis/deep_learning/environment.py": "5a6ad90c2f6bcdb86b6ccfbe89ce0e31b2eaab6dd4069855e231bbc6b8a35bd5",
+    "analysis/deep_learning/evaluate.py": "4f1b0eb8d2c89ffc9a58c69010039aebb907667e491d19a252cd3d52d9b500ad",
+    "analysis/deep_learning/features.py": "5b3503b0d289df1b32db16906c0e9fe3577d711cf62cdf633d6ab0b27c8e2eca",
+    "analysis/deep_learning/inference.py": "3cc324563bb1bcc4d1a56788d0b2bd0c6a7f80b775aca2ff546e213166674fec",
+    "analysis/deep_learning/losses.py": "083c6fcd8e8b9cc4caf7aebb624550f4d7c844f6a9c946101ee9e959fa228cfb",
+    "analysis/deep_learning/metrics.py": "98d5284e424ad1a04e628f2c5a1a352aa97be05233d9ed435e88ed24ee452ba1",
+    "analysis/deep_learning/models/__init__.py": "2db7f45f02f1f8d5ca1ca876505c9a4c6ca40eb3b015f4e690f9e7dd11f47206",
+    "analysis/deep_learning/models/common.py": "6b67b2e8d844ca47b55874d3de5456a8e2347a32f160b41887f58b47a4217360",
+    "analysis/deep_learning/models/convnext1d.py": "450b0cf373b51959e789fed6b061f12ec3a83001bcffe497e088d954af16cd88",
+    "analysis/deep_learning/models/cross_site_attention.py": "b95a649f9dbd4efd0b865054b25db9a23b81bd9152d7e1fdd3c3e56b710891f4",
+    "analysis/deep_learning/models/weather_transformer.py": "5a481c7473620f7ca5e4b85b1d588d0a6a966151ba0e6833d44a17c3be125ef5",
+    "analysis/deep_learning/predict.py": "3a444d5270dee63ef24f99e2bbd4e00a1b131ca6df88d723a0ccf19eb6905db3",
+    "analysis/deep_learning/prepare.py": "86e3ee4e63e5734fdd1f0820b8a467e0423dbd6b2dbfd579c981963b6170002b",
+    "analysis/deep_learning/requirements.txt": "3e99f8bac93a4cad9b110ffd6a8ad1ae6d164aa794c74c5f3b7fc3a3037a7a57",
+    "analysis/deep_learning/runtime.py": "ba171c3aed985621ed6cb56369853006344f71eb6590babe6a476190745defc5",
+    "analysis/deep_learning/smoke.py": "bb4ee0babe8e0156a3569e2b7a1e4c231e45e15624ea2723b8302be6adfbf7b0",
+    "analysis/deep_learning/tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "analysis/deep_learning/tests/test_pipeline.py": "11a6e59ca09a5593e4ecf48243c911110bc21ce1357696bc5d31a6c948c2f354",
+    "analysis/deep_learning/train.py": "0732e3057c4635aa1f3786344255ae8d6d596e73bfa5ee5d4e4be0bf51bdc033",
+    "configs/deep_learning/cnn_base.yaml": "9caf36cc861ce47190ee19b3e3dc8c87e0bead5e5d54f1b17194bf3a943d6df5",
+    "configs/deep_learning/cnn_large.yaml": "449fda408cd463e1fbdf43831c88bdb835305784c997c0c10691965996fb544f",
+    "configs/deep_learning/cnn_small.yaml": "23344c9f0f5f677e817fdc516f051cce2b52e3b82ac100a1faa184c37579a16f",
+    "configs/deep_learning/cross_site_base.yaml": "994f06e5758ecb6e1aeb3297074033685dd9691cc3c707b8d4badb89671f73e9",
+    "configs/deep_learning/cross_site_cnn_only.yaml": "7f78536d6ddb17daf07cfa4350d7289c5df65b6d2180f7c7167d368998ea1cd7",
+    "configs/deep_learning/cross_site_group.yaml": "cfbbf40d942956893c0d9d61801d3ca8c441a03fc5ac6ed22b66b4986145d9f7",
+    "configs/deep_learning/feature_contract.json": "fca3efc6c9279e8e4309069a01afc485b3eb182d38cd011f73d66647bd549cf6",
+    "configs/deep_learning/transformer_base.yaml": "5f7cbf5ff8f109fe31070e896edef54c2c22e2f95260e1f3a73866cbd21dca0f",
+    "configs/deep_learning/transformer_large.yaml": "aa2dd41985299b1e4dda71fb8811328f65fcaf6cb7fbfcf5913745862254c453",
+    "configs/deep_learning/transformer_small.yaml": "ea3e1e7d6471d12953510c22cceb4d3eff639bd3fe76233b749361fe451c79ab",
+    "scripts/gpu/check_environment.sh": "7c25a6fc4fdbc8eac5d9e024e9d162886177ad040c38c369a8554d4932d24e21",
+    "scripts/gpu/evaluate_models.sh": "9832ac1db8cc9630e315703ca449a12288a4ebdc2f7e694b6108cac96ae94070",
+    "scripts/gpu/install_dependencies.sh": "5465c1cbb24f7ad38970eb992f34cd4fbff31256d44b334b744948cf669feba5",
+    "scripts/gpu/train_all.sh": "45f99142400842b3e755b38a47fe2dad918a1c62dbe0eedc6968654fa07b15f9",
+    "scripts/gpu/train_cnn.sh": "9fb5505b3680f4eac05ba57a50fbc5de3ab3e508fd7b8592078021f85ccefbb4",
+    "scripts/gpu/train_cross_site.sh": "bdb009bd3498e243490e9bd47a460dc37786a65d7de9276f819d00461bb44fbf",
+    "scripts/gpu/train_transformer.sh": "f90ed95751ee4cf22ba9c0c65cf6f79a0c42c8a5daf0e19a03772634ab7b8d20",
+    ".gitignore": "127fc58ac0cea0c47efd5c6b915f026ffb2ee74c958efbbb2dcd130a69c28c65"
+  }
+}

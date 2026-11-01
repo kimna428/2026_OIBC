@@ -1,0 +1,17 @@
+{
+  "kind": "provided_data_preprocessing_check_only",
+  "training_executed": false,
+  "days": 2,
+  "site_hours": 12144,
+  "parquet_reuse_and_raw_builder_match": true,
+  "arrays": [
+    "weather",
+    "temporal",
+    "target",
+    "energy",
+    "smp",
+    "k",
+    "missing_kind"
+  ],
+  "original_hashes_verified_before_after_prepare": true
+}

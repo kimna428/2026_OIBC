@@ -45,7 +45,7 @@ def to_device(batch,device): return {k:v.to(device,non_blocking=True) for k,v in
 
 def loader(dataset,training,config,generator=None):
     workers=config['num_workers']
-    return DataLoader(dataset,batch_size=config['batch_size'],shuffle=training,num_workers=workers,pin_memory=config.get('pin_memory',True),persistent_workers=workers>0 and config.get('persistent_workers',True),worker_init_fn=worker_init,generator=generator,drop_last=False)
+    return DataLoader(dataset,batch_size=config['batch_size'],shuffle=training,num_workers=workers,pin_memory=config.get('pin_memory',True) and torch.cuda.is_available(),persistent_workers=workers>0 and config.get('persistent_workers',True),worker_init_fn=worker_init,generator=generator,drop_last=False,multiprocessing_context='spawn' if workers>0 else None)
 
 def append_log(file,value):
     with Path(file).open('a') as f: f.write(json.dumps(value,allow_nan=False)+'\n')

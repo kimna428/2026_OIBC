@@ -24,6 +24,7 @@ class DayCache:
         if self.composition.to_dict('records')!=self.manifest['composition']: raise ValueError('Composition changed')
         self.days=pd.DatetimeIndex([aware(x) for x in self.manifest['days']]).as_unit('ns')
         self.num_sites=len(self.sites)
+        if self.static.shape!=(self.num_sites,5) or not np.allclose(self.static,self.sites[['capacity_kw','lat','lon','wa_dist','wb_dist']].to_numpy(),equal_nan=True): raise ValueError('Static mmap and canonical site metadata differ')
         shape=(len(self.days),self.num_sites,24)
         if self.weather.shape!=shape+(len(self.manifest['weather_features']),) or self.target.shape!=shape or self.energy.shape!=shape or self.temporal.shape!=shape+(len(self.manifest['temporal_features']),): raise ValueError('Cache array schema mismatch')
     def __getstate__(self): return {k:v for k,v in self.__dict__.items() if k!='_arrays'}|{'_arrays':{}}
@@ -63,7 +64,7 @@ class DayDataset(Dataset):
             else: self.items.extend((int(d),s) for s in range(cache.num_sites))
         if not self.items: raise ValueError('No supervised samples in training range')
         self.items=np.asarray(self.items,dtype='int64')
-        raw,flags,onehot,valid=static_features(cache.sites,cache.manifest['station_categories'])
+        raw,flags,onehot,valid=static_features(cache.sites,cache.manifest['station_categories'],normalizer.get('station_seen'))
         scaled,_=normalize(raw,normalizer['static'])
         self.static_values=np.concatenate([scaled,flags.astype('float32'),onehot],axis=-1)
         self.metadata_valid=valid; self.seen=np.asarray(normalizer['seen_hours'])
@@ -75,7 +76,10 @@ class DayDataset(Dataset):
         y=np.array(self.cache.target[day,selection],dtype='float32',copy=True)
         observed=np.isfinite(y); train_mask=observed&(y>=0)&(y<=1)
         time_ok=day_hours(self.cache.days[day]).asi8<=self.cutoff.value
-        if self.split=='train': train_mask&=time_ok
+        if self.split=='train':
+            train_mask&=time_ok
+            y[...,~time_ok]=np.nan
+            observed&=time_ok
         else: train_mask=observed.copy()
         positions=np.arange(self.cache.num_sites) if self.full_fleet else np.asarray(site)
         ids=np.where(self.seen[positions]>0,positions+1,0).astype('int64')

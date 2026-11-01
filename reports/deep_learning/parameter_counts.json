@@ -1,0 +1,193 @@
+{
+  "python": "3.13.12 (main, Mar 25 2026, 02:48:22) [Clang 22.1.1 ]",
+  "platform": "macOS-15.6.1-arm64-arm-64bit-Mach-O",
+  "torch": "2.15.0",
+  "torch_cuda_runtime": null,
+  "cuda_available": false,
+  "remote_connection_attempted": false,
+  "parameter_counts": {
+    "cnn_base": {
+      "parameters": 5214241,
+      "model": {
+        "name": "cnn",
+        "width": 352,
+        "depth": 5,
+        "kernel_size": 7,
+        "expansion": 4,
+        "dropout": 0.1,
+        "gradient_checkpointing": false,
+        "site_dropout": 0.1
+      },
+      "dimensions": {
+        "weather_dim": 90,
+        "temporal_dim": 8,
+        "static_dim": 146,
+        "num_sites": 253
+      }
+    },
+    "cnn_large": {
+      "parameters": 9979009,
+      "model": {
+        "name": "cnn",
+        "width": 448,
+        "depth": 6,
+        "kernel_size": 7,
+        "expansion": 4,
+        "dropout": 0.1,
+        "gradient_checkpointing": true,
+        "site_dropout": 0.1
+      },
+      "dimensions": {
+        "weather_dim": 90,
+        "temporal_dim": 8,
+        "static_dim": 146,
+        "num_sites": 253
+      }
+    },
+    "cnn_small": {
+      "parameters": 2015793,
+      "model": {
+        "name": "cnn",
+        "width": 240,
+        "depth": 4,
+        "kernel_size": 7,
+        "expansion": 4,
+        "dropout": 0.1,
+        "gradient_checkpointing": false,
+        "site_dropout": 0.1
+      },
+      "dimensions": {
+        "weather_dim": 90,
+        "temporal_dim": 8,
+        "static_dim": 146,
+        "num_sites": 253
+      }
+    },
+    "cross_site_base": {
+      "parameters": 3991233,
+      "model": {
+        "name": "cross_site",
+        "width": 256,
+        "depth": 4,
+        "kernel_size": 7,
+        "expansion": 4,
+        "cross_layers": 2,
+        "heads": 8,
+        "feedforward": 1024,
+        "dropout": 0.1,
+        "cross_attention": true,
+        "gradient_checkpointing": true,
+        "site_dropout": 0.1
+      },
+      "dimensions": {
+        "weather_dim": 90,
+        "temporal_dim": 8,
+        "static_dim": 146,
+        "num_sites": 253
+      }
+    },
+    "cross_site_cnn_only": {
+      "parameters": 2411713,
+      "model": {
+        "name": "cross_site",
+        "width": 256,
+        "depth": 4,
+        "kernel_size": 7,
+        "expansion": 4,
+        "cross_layers": 2,
+        "heads": 8,
+        "feedforward": 1024,
+        "dropout": 0.1,
+        "cross_attention": false,
+        "gradient_checkpointing": true,
+        "site_dropout": 0.1
+      },
+      "dimensions": {
+        "weather_dim": 90,
+        "temporal_dim": 8,
+        "static_dim": 146,
+        "num_sites": 253
+      }
+    },
+    "cross_site_group": {
+      "parameters": 3991233,
+      "model": {
+        "name": "cross_site",
+        "width": 256,
+        "depth": 4,
+        "kernel_size": 7,
+        "expansion": 4,
+        "cross_layers": 2,
+        "heads": 8,
+        "feedforward": 1024,
+        "dropout": 0.1,
+        "cross_attention": true,
+        "gradient_checkpointing": true,
+        "site_dropout": 0.1
+      },
+      "dimensions": {
+        "weather_dim": 90,
+        "temporal_dim": 8,
+        "static_dim": 146,
+        "num_sites": 253
+      }
+    },
+    "transformer_base": {
+      "parameters": 16176385,
+      "model": {
+        "name": "transformer",
+        "d_model": 448,
+        "heads": 8,
+        "layers": 6,
+        "feedforward": 2048,
+        "dropout": 0.1,
+        "gradient_checkpointing": true,
+        "site_dropout": 0.1
+      },
+      "dimensions": {
+        "weather_dim": 90,
+        "temporal_dim": 8,
+        "static_dim": 146,
+        "num_sites": 253
+      }
+    },
+    "transformer_large": {
+      "parameters": 29785281,
+      "model": {
+        "name": "transformer",
+        "d_model": 512,
+        "heads": 8,
+        "layers": 8,
+        "feedforward": 2560,
+        "dropout": 0.1,
+        "gradient_checkpointing": true,
+        "site_dropout": 0.1
+      },
+      "dimensions": {
+        "weather_dim": 90,
+        "temporal_dim": 8,
+        "static_dim": 146,
+        "num_sites": 253
+      }
+    },
+    "transformer_small": {
+      "parameters": 7950657,
+      "model": {
+        "name": "transformer",
+        "d_model": 384,
+        "heads": 6,
+        "layers": 4,
+        "feedforward": 1728,
+        "dropout": 0.1,
+        "gradient_checkpointing": true,
+        "site_dropout": 0.1
+      },
+      "dimensions": {
+        "weather_dim": 90,
+        "temporal_dim": 8,
+        "static_dim": 146,
+        "num_sites": 253
+      }
+    }
+  }
+}
