@@ -19,3 +19,28 @@ reports/deep_learning/smoke_artifacts/
 # Generated expanding experiment models
 /reports/expanding/fold*_*.txt
 
+
+# macOS
+.DS_Store
+
+# Virtual environments
+.venv/
+.venv-gpu/
+__pycache__/
+
+# Datasets and artifacts
+*.parquet
+*.zip
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.log
+
+/analysis/datasets/
+/analysis/results/
+/handover 2/01_participant_dataset/
+/reports/expanding/datasets/
+/reports/third_experiment/predictions/
+/reports/third_experiment/provenance/
+
