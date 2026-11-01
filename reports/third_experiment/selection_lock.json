@@ -1,0 +1,38 @@
+{
+  "chosen": {
+    "B": {
+      "candidate": "B_1m_revision",
+      "policy": "train_calibrated",
+      "criterion": "sum complete-fleet development penalty (fold4 only)"
+    },
+    "C": {
+      "candidate": "C_1m_r17",
+      "policy": "train_calibrated",
+      "criterion": "sum complete-fleet development penalty (fold4 only)"
+    }
+  },
+  "parameters": {
+    "B": {
+      "n_estimators": 180,
+      "learning_rate": 0.04,
+      "num_leaves": 63,
+      "min_child_samples": 160
+    },
+    "C": {
+      "n_estimators": 180,
+      "learning_rate": 0.04,
+      "num_leaves": 63,
+      "min_child_samples": 160
+    }
+  },
+  "selection_used_folds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "holdout_used_for_selection": false,
+  "selection_source_max": "2025-02-28 17:00:00+09:00",
+  "holdout_previously_explored_in_stage2": true
+}

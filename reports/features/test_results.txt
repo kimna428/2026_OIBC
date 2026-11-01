@@ -1,0 +1,10 @@
+test_cardinality_targets_flags_and_raw_units (test_feature_pipeline.FeatureTests.test_cardinality_targets_flags_and_raw_units) ... ok
+test_duplicate_and_future_round_rejected (test_feature_pipeline.FeatureTests.test_duplicate_and_future_round_rejected) ... ok
+test_duplicate_target_rejected (test_feature_pipeline.FeatureTests.test_duplicate_target_rejected) ... ok
+test_off_hour_forecast_is_not_rounded (test_feature_pipeline.FeatureTests.test_off_hour_forecast_is_not_rounded) ... ok
+test_operating_day_and_schema (test_feature_pipeline.FeatureTests.test_operating_day_and_schema) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.110s
+
+OK

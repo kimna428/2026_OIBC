@@ -1,0 +1,30 @@
+{
+  "input_sha256": {
+    "handover 2/01_participant_dataset/sites.csv": "93d166fffd009c3643db748fc6d5a1d48851e5f70b314171130e6ab6b7997ea2",
+    "handover 2/01_participant_dataset/train/generation.parquet": "a2c334a5d2dd0983be78c7ac138e25a013cf70fd9d027515953129ea79964e95",
+    "handover 2/01_participant_dataset/train/smp.csv": "6ae610fc3e527e603681da3867ecd79d210ed24a17e676ac16149ba7d349645b",
+    "handover 2/01_participant_dataset/smp.csv": "396bfadb73332f5b8ce61821ad9425ee93052ced2b71f0666cf071d2b95fa79c"
+  },
+  "reference_group_capacity_kw": {
+    "G1": 20465.655,
+    "G2": 22189.715
+  },
+  "generation_rows": 4392566,
+  "split_rows": {
+    "train": 3475694,
+    "dev": 546480,
+    "holdout": 370392
+  },
+  "checks": {
+    "input_hash_unchanged": true,
+    "all_rows_partitioned_once": true,
+    "dev_2160_hours": true,
+    "holdout_1464_hours": true,
+    "submission_k_matches_local_rule": true
+  },
+  "fixed_time_files_sha256": {
+    "train": "969e327c14af3bcb8e1f48dcabbbdd1e98583069442d1f0914696d1fb176bf78",
+    "dev": "f11fd74ddc30f0f05793b504e8c02bbd670c68917c82c939036dd911d6fba030",
+    "holdout": "ba8817c2f2a6eb502b8597d4b2b74db79f696fd6e2d4786c844981ac8808a9ba"
+  }
+}

@@ -1,0 +1,841 @@
+{
+  "raw_hashes_unchanged": true,
+  "input_hashes": {
+    "baseline.py": "ab2a5752aa2df07cd0414acb53959a1956a8a261a3858324e9216cff268a2a02",
+    "README.md": "d8475954774c328f46e1dea96951b6ea11beffa548611d18eee0db7470c01ca5",
+    "sites.csv": "93d166fffd009c3643db748fc6d5a1d48851e5f70b314171130e6ab6b7997ea2",
+    "smp.csv": "396bfadb73332f5b8ce61821ad9425ee93052ced2b71f0666cf071d2b95fa79c",
+    "test/forecast_wa.parquet": "610029e17c00cec1498fc2e48a980269496ece977e81d3d57302361a064a5eab",
+    "test/forecast_wb.parquet": "fe03948b231c50e4688f1f4cdcef1613cb36c72b0e1f93972824b707abe04219",
+    "train/generation.parquet": "a2c334a5d2dd0983be78c7ac138e25a013cf70fd9d027515953129ea79964e95",
+    "train/observed_wb.parquet": "d4cb3ee33f0555083285e65cd7d43c2d0a16e19fcc62b4cffa95799131817aac",
+    "train/forecast_wa.parquet": "a2bda6853d5dcc2dc140e976c1cbc75d0d9a085b41ba17f5ac994704d364a784",
+    "train/forecast_wb.parquet": "e8e5de90652c1e949e695b3f8b7f3e1001d3c4a02e3961a42bca1921d2439483",
+    "train/observed_wa.parquet": "e002265b5a7b92d8272db4f72043afddc472bde9a4c1704b3a266002655ba2b9",
+    "train/smp.csv": "6ae610fc3e527e603681da3867ecd79d210ed24a17e676ac16149ba7d349645b"
+  },
+  "asof_per_sample_files": 6,
+  "operating_day_boundary_changes": 0,
+  "holdout_excluded_from_tuning_and_selection": true,
+  "holdout_prior_exposure": true,
+  "oof_max_fold": 4,
+  "feature_receipt_assumption": "generation immediately available at its right-closed timestamp; actual receipt latency unknown",
+  "source_hash": "7c8dcf444c71c3f3a3919be39d74a49911089ec1500e0376cef0103c5ec0ad94",
+  "independent_audit": {
+    "prediction_files": [
+      {
+        "file": "B_1m_both_fold0.parquet",
+        "fold": 0,
+        "rows": 246641,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "B_1m_both_fold1.parquet",
+        "fold": 1,
+        "rows": 335139,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "B_1m_both_fold2.parquet",
+        "fold": 2,
+        "rows": 515739,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "B_1m_both_fold3.parquet",
+        "fold": 3,
+        "rows": 550368,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-08-31 17:00:00+09:00"
+      },
+      {
+        "file": "B_1m_both_fold4.parquet",
+        "fold": 4,
+        "rows": 545914,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "B_1m_both_fold5.parquet",
+        "fold": 5,
+        "rows": 558624,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2025-02-28 17:00:00+09:00"
+      },
+      {
+        "file": "B_1m_r10_fold0.parquet",
+        "fold": 0,
+        "rows": 246641,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "B_1m_r10_fold1.parquet",
+        "fold": 1,
+        "rows": 335139,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "B_1m_r10_fold2.parquet",
+        "fold": 2,
+        "rows": 515739,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "B_1m_r10_fold3.parquet",
+        "fold": 3,
+        "rows": 550368,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-08-31 17:00:00+09:00"
+      },
+      {
+        "file": "B_1m_r10_fold4.parquet",
+        "fold": 4,
+        "rows": 545914,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "B_1m_r10_fold5.parquet",
+        "fold": 5,
+        "rows": 558624,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2025-02-28 17:00:00+09:00"
+      },
+      {
+        "file": "B_1m_r17_fold0.parquet",
+        "fold": 0,
+        "rows": 246641,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "B_1m_r17_fold1.parquet",
+        "fold": 1,
+        "rows": 335139,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "B_1m_r17_fold2.parquet",
+        "fold": 2,
+        "rows": 515739,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "B_1m_r17_fold3.parquet",
+        "fold": 3,
+        "rows": 550368,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-08-31 17:00:00+09:00"
+      },
+      {
+        "file": "B_1m_r17_fold4.parquet",
+        "fold": 4,
+        "rows": 545914,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "B_1m_r17_fold5.parquet",
+        "fold": 5,
+        "rows": 558624,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2025-02-28 17:00:00+09:00"
+      },
+      {
+        "file": "B_1m_revision_fold0.parquet",
+        "fold": 0,
+        "rows": 246641,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "B_1m_revision_fold1.parquet",
+        "fold": 1,
+        "rows": 335139,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "B_1m_revision_fold2.parquet",
+        "fold": 2,
+        "rows": 515739,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "B_1m_revision_fold3.parquet",
+        "fold": 3,
+        "rows": 550368,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-08-31 17:00:00+09:00"
+      },
+      {
+        "file": "B_1m_revision_fold4.parquet",
+        "fold": 4,
+        "rows": 545914,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "B_1m_revision_fold5.parquet",
+        "fold": 5,
+        "rows": 558624,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2025-02-28 17:00:00+09:00"
+      },
+      {
+        "file": "B_200k_r17_fold0.parquet",
+        "fold": 0,
+        "rows": 246641,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "B_200k_r17_fold1.parquet",
+        "fold": 1,
+        "rows": 335139,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "B_200k_r17_fold2.parquet",
+        "fold": 2,
+        "rows": 515739,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "B_200k_r17_fold3.parquet",
+        "fold": 3,
+        "rows": 550368,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-08-31 17:00:00+09:00"
+      },
+      {
+        "file": "B_200k_r17_fold4.parquet",
+        "fold": 4,
+        "rows": 545914,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "B_200k_r17_fold5.parquet",
+        "fold": 5,
+        "rows": 558624,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2025-02-28 17:00:00+09:00"
+      },
+      {
+        "file": "B_full_r17_fold0.parquet",
+        "fold": 0,
+        "rows": 246641,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "B_full_r17_fold1.parquet",
+        "fold": 1,
+        "rows": 335139,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "B_full_r17_fold2.parquet",
+        "fold": 2,
+        "rows": 515739,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "B_full_r17_fold3.parquet",
+        "fold": 3,
+        "rows": 550368,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-08-31 17:00:00+09:00"
+      },
+      {
+        "file": "B_full_r17_fold4.parquet",
+        "fold": 4,
+        "rows": 545914,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "B_full_r17_fold5.parquet",
+        "fold": 5,
+        "rows": 558624,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2025-02-28 17:00:00+09:00"
+      },
+      {
+        "file": "C_1m_both_fold0.parquet",
+        "fold": 0,
+        "rows": 246641,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "C_1m_both_fold1.parquet",
+        "fold": 1,
+        "rows": 335139,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "C_1m_both_fold2.parquet",
+        "fold": 2,
+        "rows": 515739,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "C_1m_both_fold3.parquet",
+        "fold": 3,
+        "rows": 550368,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-08-31 17:00:00+09:00"
+      },
+      {
+        "file": "C_1m_both_fold4.parquet",
+        "fold": 4,
+        "rows": 545914,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "C_1m_both_fold5.parquet",
+        "fold": 5,
+        "rows": 558624,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2025-02-28 17:00:00+09:00"
+      },
+      {
+        "file": "C_1m_r10_fold0.parquet",
+        "fold": 0,
+        "rows": 246641,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "C_1m_r10_fold1.parquet",
+        "fold": 1,
+        "rows": 335139,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "C_1m_r10_fold2.parquet",
+        "fold": 2,
+        "rows": 515739,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "C_1m_r10_fold3.parquet",
+        "fold": 3,
+        "rows": 550368,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-08-31 17:00:00+09:00"
+      },
+      {
+        "file": "C_1m_r10_fold4.parquet",
+        "fold": 4,
+        "rows": 545914,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "C_1m_r10_fold5.parquet",
+        "fold": 5,
+        "rows": 558624,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2025-02-28 17:00:00+09:00"
+      },
+      {
+        "file": "C_1m_r17_fold0.parquet",
+        "fold": 0,
+        "rows": 246641,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "C_1m_r17_fold1.parquet",
+        "fold": 1,
+        "rows": 335139,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "C_1m_r17_fold2.parquet",
+        "fold": 2,
+        "rows": 515739,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "C_1m_r17_fold3.parquet",
+        "fold": 3,
+        "rows": 550368,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-08-31 17:00:00+09:00"
+      },
+      {
+        "file": "C_1m_r17_fold4.parquet",
+        "fold": 4,
+        "rows": 545914,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "C_1m_r17_fold5.parquet",
+        "fold": 5,
+        "rows": 558624,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2025-02-28 17:00:00+09:00"
+      },
+      {
+        "file": "C_1m_revision_fold0.parquet",
+        "fold": 0,
+        "rows": 246641,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "C_1m_revision_fold1.parquet",
+        "fold": 1,
+        "rows": 335139,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "C_1m_revision_fold2.parquet",
+        "fold": 2,
+        "rows": 515739,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "C_1m_revision_fold3.parquet",
+        "fold": 3,
+        "rows": 550368,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-08-31 17:00:00+09:00"
+      },
+      {
+        "file": "C_1m_revision_fold4.parquet",
+        "fold": 4,
+        "rows": 545914,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "C_1m_revision_fold5.parquet",
+        "fold": 5,
+        "rows": 558624,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2025-02-28 17:00:00+09:00"
+      },
+      {
+        "file": "C_200k_r17_fold0.parquet",
+        "fold": 0,
+        "rows": 246641,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "C_200k_r17_fold1.parquet",
+        "fold": 1,
+        "rows": 335139,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "C_200k_r17_fold2.parquet",
+        "fold": 2,
+        "rows": 515739,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "C_200k_r17_fold3.parquet",
+        "fold": 3,
+        "rows": 550368,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-08-31 17:00:00+09:00"
+      },
+      {
+        "file": "C_200k_r17_fold4.parquet",
+        "fold": 4,
+        "rows": 545914,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "C_200k_r17_fold5.parquet",
+        "fold": 5,
+        "rows": 558624,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2025-02-28 17:00:00+09:00"
+      },
+      {
+        "file": "C_full_r17_fold0.parquet",
+        "fold": 0,
+        "rows": 246641,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "C_full_r17_fold1.parquet",
+        "fold": 1,
+        "rows": 335139,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "C_full_r17_fold2.parquet",
+        "fold": 2,
+        "rows": 515739,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "C_full_r17_fold3.parquet",
+        "fold": 3,
+        "rows": 550368,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-08-31 17:00:00+09:00"
+      },
+      {
+        "file": "C_full_r17_fold4.parquet",
+        "fold": 4,
+        "rows": 545914,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "C_full_r17_fold5.parquet",
+        "fold": 5,
+        "rows": 558624,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2025-02-28 17:00:00+09:00"
+      },
+      {
+        "file": "tune_B_0_fold0.parquet",
+        "fold": 0,
+        "rows": 246641,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "tune_B_0_fold1.parquet",
+        "fold": 1,
+        "rows": 335139,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "tune_B_0_fold2.parquet",
+        "fold": 2,
+        "rows": 515739,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "tune_B_0_fold3.parquet",
+        "fold": 3,
+        "rows": 550368,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-08-31 17:00:00+09:00"
+      },
+      {
+        "file": "tune_B_1_fold0.parquet",
+        "fold": 0,
+        "rows": 246641,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "tune_B_1_fold1.parquet",
+        "fold": 1,
+        "rows": 335139,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "tune_B_1_fold2.parquet",
+        "fold": 2,
+        "rows": 515739,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "tune_B_1_fold3.parquet",
+        "fold": 3,
+        "rows": 550368,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-08-31 17:00:00+09:00"
+      },
+      {
+        "file": "tune_B_2_fold0.parquet",
+        "fold": 0,
+        "rows": 246641,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "tune_B_2_fold1.parquet",
+        "fold": 1,
+        "rows": 335139,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "tune_B_2_fold2.parquet",
+        "fold": 2,
+        "rows": 515739,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "tune_B_2_fold3.parquet",
+        "fold": 3,
+        "rows": 550368,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-08-31 17:00:00+09:00"
+      },
+      {
+        "file": "tune_C_0_fold0.parquet",
+        "fold": 0,
+        "rows": 246641,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "tune_C_0_fold1.parquet",
+        "fold": 1,
+        "rows": 335139,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "tune_C_0_fold2.parquet",
+        "fold": 2,
+        "rows": 515739,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "tune_C_0_fold3.parquet",
+        "fold": 3,
+        "rows": 550368,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-08-31 17:00:00+09:00"
+      },
+      {
+        "file": "tune_C_1_fold0.parquet",
+        "fold": 0,
+        "rows": 246641,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "tune_C_1_fold1.parquet",
+        "fold": 1,
+        "rows": 335139,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "tune_C_1_fold2.parquet",
+        "fold": 2,
+        "rows": 515739,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "tune_C_1_fold3.parquet",
+        "fold": 3,
+        "rows": 550368,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-08-31 17:00:00+09:00"
+      },
+      {
+        "file": "tune_C_2_fold0.parquet",
+        "fold": 0,
+        "rows": 246641,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "tune_C_2_fold1.parquet",
+        "fold": 1,
+        "rows": 335139,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2023-11-30 17:00:00+09:00"
+      },
+      {
+        "file": "tune_C_2_fold2.parquet",
+        "fold": 2,
+        "rows": 515739,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-05-31 17:00:00+09:00"
+      },
+      {
+        "file": "tune_C_2_fold3.parquet",
+        "fold": 3,
+        "rows": 550368,
+        "raw_targets_match": true,
+        "sample_model_replay": true,
+        "actual_training_target_max": "2024-08-31 17:00:00+09:00"
+      }
+    ],
+    "per_fold_provenance": [
+      {
+        "fold": 0,
+        "rows": 246641,
+        "future_violations": 0
+      },
+      {
+        "fold": 1,
+        "rows": 335139,
+        "future_violations": 0
+      },
+      {
+        "fold": 2,
+        "rows": 515739,
+        "future_violations": 0
+      },
+      {
+        "fold": 3,
+        "rows": 550368,
+        "future_violations": 0
+      },
+      {
+        "fold": 4,
+        "rows": 545914,
+        "future_violations": 0
+      },
+      {
+        "fold": 5,
+        "rows": 558624,
+        "future_violations": 0
+      }
+    ],
+    "source_reconstruction_rows": 4697,
+    "score_cases_recomputed": 216,
+    "offline_history_sensitivity_no_reselection": true,
+    "tuning_reproduced": true,
+    "development_selection_reproduced": true,
+    "OOF_has_no_holdout": true
+  },
+  "feature_cache_sha256": "e8911a8247e57a5441c49747bc97b172104229709715a969eb05cdc60479f06b",
+  "source_hashes": {
+    "test_third_experiment.py": "a7cddc4a1e698d370b13f5004654b73ffbc9fc696529ab4f2308f4b27e10eb37",
+    "audit_third_experiment.py": "cc08cb6a7ead0fb315930e639441509bd8909bf13ae430ddd8530e6429ed2bf8",
+    "third_experiment.py": "7c8dcf444c71c3f3a3919be39d74a49911089ec1500e0376cef0103c5ec0ad94"
+  },
+  "audit_counter_correction": "Preserve feature-replay row count before the offline sensitivity loop overwrites its local index array; checks and model outputs unchanged."
+}

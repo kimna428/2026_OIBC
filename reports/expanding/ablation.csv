@@ -1,0 +1,6 @@
+reference,experiment,mean_fold_cf_mae_delta,improved_folds,equal_folds
+V0_B,V1_B,-0.002596269758886415,6,0
+V1_B,V2_B,-1.591941691645356e-05,1,1
+V2_B,V2_interp_B,0.0,0,6
+V2_B,V3_B,-0.026366571067559016,6,0
+V3_B,V3_C,-0.0007127620617503345,6,0

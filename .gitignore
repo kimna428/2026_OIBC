@@ -1,0 +1,21 @@
+# New generated training artifacts. Existing tracked files remain tracked.
+.venv-gpu/
+analysis/deep_learning/cache/
+runs/
+__pycache__/
+*.py[cod]
+configs/deep_learning/*.local.yaml
+.env.local
+reports/deep_learning/smoke_artifacts/
+*.pt
+*.pth
+*.pt.tmp
+
+# Generated experiment models
+/reports/third_experiment/models/
+/reports/third_experiment/checkpoints/
+/reports/third_experiment/superseded_full_round_pilot/
+
+# Generated expanding experiment models
+/reports/expanding/fold*_*.txt
+

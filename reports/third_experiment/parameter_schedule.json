@@ -1,0 +1,172 @@
+{
+  "B": {
+    "0": {
+      "params": {
+        "n_estimators": 60,
+        "learning_rate": 0.08,
+        "num_leaves": 31,
+        "min_child_samples": 20
+      },
+      "completed_tuning_folds": [],
+      "parameter_source_max": null,
+      "prediction_issue_min": "2023-05-31 17:00:00+09:00"
+    },
+    "1": {
+      "params": {
+        "n_estimators": 180,
+        "learning_rate": 0.04,
+        "num_leaves": 63,
+        "min_child_samples": 160
+      },
+      "completed_tuning_folds": [
+        0
+      ],
+      "parameter_source_max": "2023-09-01 00:00:00+09:00",
+      "prediction_issue_min": "2023-11-30 17:00:00+09:00"
+    },
+    "2": {
+      "params": {
+        "n_estimators": 180,
+        "learning_rate": 0.04,
+        "num_leaves": 63,
+        "min_child_samples": 160
+      },
+      "completed_tuning_folds": [
+        0,
+        1
+      ],
+      "parameter_source_max": "2024-03-01 00:00:00+09:00",
+      "prediction_issue_min": "2024-05-31 17:00:00+09:00"
+    },
+    "3": {
+      "params": {
+        "n_estimators": 180,
+        "learning_rate": 0.04,
+        "num_leaves": 63,
+        "min_child_samples": 160
+      },
+      "completed_tuning_folds": [
+        0,
+        1
+      ],
+      "parameter_source_max": "2024-03-01 00:00:00+09:00",
+      "prediction_issue_min": "2024-08-31 17:00:00+09:00"
+    },
+    "4": {
+      "params": {
+        "n_estimators": 180,
+        "learning_rate": 0.04,
+        "num_leaves": 63,
+        "min_child_samples": 160
+      },
+      "completed_tuning_folds": [
+        0,
+        1,
+        2
+      ],
+      "parameter_source_max": "2024-09-01 00:00:00+09:00",
+      "prediction_issue_min": "2024-11-30 17:00:00+09:00"
+    },
+    "5": {
+      "params": {
+        "n_estimators": 180,
+        "learning_rate": 0.04,
+        "num_leaves": 63,
+        "min_child_samples": 160
+      },
+      "completed_tuning_folds": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "parameter_source_max": "2024-12-01 00:00:00+09:00",
+      "prediction_issue_min": "2025-02-28 17:00:00+09:00"
+    }
+  },
+  "C": {
+    "0": {
+      "params": {
+        "n_estimators": 60,
+        "learning_rate": 0.08,
+        "num_leaves": 31,
+        "min_child_samples": 20
+      },
+      "completed_tuning_folds": [],
+      "parameter_source_max": null,
+      "prediction_issue_min": "2023-05-31 17:00:00+09:00"
+    },
+    "1": {
+      "params": {
+        "n_estimators": 180,
+        "learning_rate": 0.04,
+        "num_leaves": 63,
+        "min_child_samples": 160
+      },
+      "completed_tuning_folds": [
+        0
+      ],
+      "parameter_source_max": "2023-09-01 00:00:00+09:00",
+      "prediction_issue_min": "2023-11-30 17:00:00+09:00"
+    },
+    "2": {
+      "params": {
+        "n_estimators": 180,
+        "learning_rate": 0.04,
+        "num_leaves": 63,
+        "min_child_samples": 160
+      },
+      "completed_tuning_folds": [
+        0,
+        1
+      ],
+      "parameter_source_max": "2024-03-01 00:00:00+09:00",
+      "prediction_issue_min": "2024-05-31 17:00:00+09:00"
+    },
+    "3": {
+      "params": {
+        "n_estimators": 180,
+        "learning_rate": 0.04,
+        "num_leaves": 63,
+        "min_child_samples": 160
+      },
+      "completed_tuning_folds": [
+        0,
+        1
+      ],
+      "parameter_source_max": "2024-03-01 00:00:00+09:00",
+      "prediction_issue_min": "2024-08-31 17:00:00+09:00"
+    },
+    "4": {
+      "params": {
+        "n_estimators": 180,
+        "learning_rate": 0.04,
+        "num_leaves": 63,
+        "min_child_samples": 160
+      },
+      "completed_tuning_folds": [
+        0,
+        1,
+        2
+      ],
+      "parameter_source_max": "2024-09-01 00:00:00+09:00",
+      "prediction_issue_min": "2024-11-30 17:00:00+09:00"
+    },
+    "5": {
+      "params": {
+        "n_estimators": 180,
+        "learning_rate": 0.04,
+        "num_leaves": 63,
+        "min_child_samples": 160
+      },
+      "completed_tuning_folds": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "parameter_source_max": "2024-12-01 00:00:00+09:00",
+      "prediction_issue_min": "2025-02-28 17:00:00+09:00"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+split,start,end,expected_hours,used_hours,excluded_hours,observed_rows,source_rows,exclusion_reason
+train,2021-01-01 01:00:00+09:00,2025-01-01 00:00:00+09:00,35064,178,34886,3475694,3475694,missing_or_nonfinite_actual
+dev,2025-01-01 01:00:00+09:00,2025-04-01 00:00:00+09:00,2160,2160,0,546480,546480,none
+holdout,2025-04-01 01:00:00+09:00,2025-06-01 00:00:00+09:00,1464,1464,0,370392,370392,none

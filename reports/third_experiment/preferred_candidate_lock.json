@@ -1,0 +1,13 @@
+{
+  "preferred": {
+    "family": "B",
+    "candidate": "B_1m_revision",
+    "policy": "train_calibrated",
+    "criterion": "sum complete-fleet development penalty (fold4 only)",
+    "development_penalty_krw": 29826045.783934884
+  },
+  "holdout_used": false,
+  "source": "scores_selection.csv",
+  "selection_source_max": "2025-02-28 17:00:00+09:00",
+  "selection_lock_sha256": "c64418961e6cf6b83be06e4df53f234245b6bda55a4c3994425cbb6f74c84476"
+}

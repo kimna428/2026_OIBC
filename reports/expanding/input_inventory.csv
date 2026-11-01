@@ -1,0 +1,11 @@
+file,rows,columns,bytes
+sites.csv,253,9,14591
+smp.csv,8760,3,302811
+test/forecast_wa.parquet,1068456,13,10181524
+test/forecast_wb.parquet,1278960,23,10366000
+train/forecast_wa.parquet,4710356,13,44885818
+train/forecast_wb.parquet,5621996,23,44767686
+train/generation.parquet,4392566,3,4828308
+train/observed_wa.parquet,2359974,12,83260828
+train/observed_wb.parquet,2824223,17,88303201
+train/smp.csv,38688,2,1263592

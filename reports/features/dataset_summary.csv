@@ -1,0 +1,5 @@
+split,rows,target_present,negative_energy,cf_gt_1,sites,target_missing
+train,8871192,3475694,40,8,253,5395498
+dev,546480,546480,0,0,253,0
+holdout,370392,370392,0,1,253,0
+test,2216280,0,0,0,253,2216280

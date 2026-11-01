@@ -1,0 +1,7 @@
+file,start,end,duplicate_keys,median_interval_hours,nonhour_intervals
+test/forecast_wa.parquet,2025-06-01 01:00:00+09:00,2026-06-01 00:00:00+09:00,0,1.0,14
+test/forecast_wb.parquet,2025-06-01 01:00:00+09:00,2026-06-01 00:00:00+09:00,0,1.0,0
+train/forecast_wa.parquet,2021-01-01 01:00:00+09:00,2025-06-01 00:00:00+09:00,0,1.0,764
+train/forecast_wb.parquet,2021-01-01 01:00:00+09:00,2025-06-01 00:00:00+09:00,0,1.0,780
+train/observed_wa.parquet,2021-01-01 01:00:00+09:00,2025-06-01 00:00:00+09:00,6,1.0,6
+train/observed_wb.parquet,2021-01-01 01:00:00+09:00,2025-06-01 00:00:00+09:00,0,1.0,1

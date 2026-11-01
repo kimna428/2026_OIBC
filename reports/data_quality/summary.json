@@ -1,0 +1,16 @@
+{
+  "rows": 4392566,
+  "sites": 253,
+  "duplicates": 0,
+  "nonfinite": 0,
+  "internal_missing_hours": 7,
+  "span_missing_rate": 1.593599013607742e-06,
+  "negative": 40,
+  "cf_gt_1": 9,
+  "cf_gt_1_2": 0,
+  "max_cf": 1.034013605442177,
+  "validation_status": {
+    "existing_ge_99pct": 205,
+    "new_site_partial": 48
+  }
+}

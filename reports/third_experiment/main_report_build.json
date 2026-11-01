@@ -1,0 +1,23 @@
+{
+  "technical_appendix": "report.md",
+  "appendix_sha256_before": "6954d9c39a32d15b79098b625ba490d53de23bb4347f897b687b157b7e190a6d",
+  "appendix_sha256_after": "6954d9c39a32d15b79098b625ba490d53de23bb4347f897b687b157b7e190a6d",
+  "appendix_unchanged": true,
+  "print_pages": 3,
+  "input_hashes": {
+    "reports/third_experiment/metrics_holdout.csv": "5669a7c9b0c86c9edc35f248bce097069b1d535a621eea0c1ed3f7d0d7f7d158",
+    "reports/third_experiment/selected_composition_metrics.csv": "256d592e1a983b1adb984ca3366d4f01071cff6ae832e8884b0c3f79f0ff6065",
+    "reports/third_experiment/selection_lock.json": "c64418961e6cf6b83be06e4df53f234245b6bda55a4c3994425cbb6f74c84476",
+    "reports/third_experiment/offline_C_metrics.csv": "b8863e5b27e6b604bd6ca29984f9df2ba7f700b62fd4b7456424748d6b749efa",
+    "reports/third_experiment/optimization_development.csv": "7ba02d3210a2a73c28cb0182e92521c80aa439da104d6dabbbf74fd5ce9f58f7",
+    "reports/third_experiment/composition_B.csv": "3a0230861e56f4be0bb9a05e45116235c262610c4ad615c86166b392e2fdd0f0",
+    "reports/expanding/metrics.csv": "b5e14237b4ac26d643e2d51be2b4a60cb5bd3eca11e095cd4e2ff5e05640b6a8",
+    "reports/expanding/official_formula_scores.csv": "e8b5e66c0efdbf060e7fdbe83c1c5713c6c8815bcbe1238babedf8a189eadda9",
+    "reports/expanding/composition.csv": "167d817533b57ecaabe5780446a6bedd74ec667aff1a65f7c2242de1758be90b",
+    "handover 2/01_participant_dataset/sites.csv": "93d166fffd009c3643db748fc6d5a1d48851e5f70b314171130e6ab6b7997ea2"
+  },
+  "outputs": [
+    "main_report.md",
+    "main_report.html"
+  ]
+}

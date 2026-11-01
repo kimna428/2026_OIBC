@@ -1,0 +1,16 @@
+{
+  "used_folds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "source_max": "2025-02-28 17:00:00+09:00",
+  "holdout_used": false,
+  "composition_hashes": {
+    "B": "3a0230861e56f4be0bb9a05e45116235c262610c4ad615c86166b392e2fdd0f0",
+    "C": "9eb9b052f1b41e142d1353616a3859b3b724d54c58430e5713265f46691d9826"
+  },
+  "selection_lock_hash": "c64418961e6cf6b83be06e4df53f234245b6bda55a4c3994425cbb6f74c84476"
+}

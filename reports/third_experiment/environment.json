@@ -1,0 +1,14 @@
+{
+  "python": "3.13.12 (main, Mar 25 2026, 02:48:22) [Clang 22.1.1 ]",
+  "packages": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "pyarrow": "25.0.1",
+    "lightgbm": "4.7.0",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2"
+  },
+  "threads_per_model": 4,
+  "seed": 2026
+}

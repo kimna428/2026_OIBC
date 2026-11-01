@@ -1,0 +1,3 @@
+-r lightgbm_requirements.txt
+# Reused forecast_baseline feature builder imports CatBoost; only LightGBM is fitted here.
+catboost==1.2.10

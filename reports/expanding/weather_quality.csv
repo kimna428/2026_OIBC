@@ -1,0 +1,86 @@
+file,variable,missing,missing_rate,minimum,maximum,availability,unit
+test/forecast_wa.parquet,wa_cloud,0,0.0,0.0,100.0,previous operating day round hour,%
+test/forecast_wa.parquet,wa_ground_press,0,0.0,924.0,1034.0,previous operating day round hour,hPa
+test/forecast_wa.parquet,wa_humidity,0,0.0,8.0,105.0,previous operating day round hour,%
+test/forecast_wa.parquet,wa_rain,0,0.0,0.0,43.81,previous operating day round hour,mm
+test/forecast_wa.parquet,wa_snow,0,0.0,0.0,6.45,previous operating day round hour,mm
+test/forecast_wa.parquet,wa_temp,0,0.0,-15.86,39.04,previous operating day round hour,°C
+test/forecast_wa.parquet,wa_temp_max,0,0.0,-15.86,39.04,previous operating day round hour,°C
+test/forecast_wa.parquet,wa_temp_min,0,0.0,-15.86,39.04,previous operating day round hour,°C
+test/forecast_wa.parquet,wa_wind_dir,0,0.0,0.0,360.0,previous operating day round hour,°
+test/forecast_wa.parquet,wa_wind_speed,0,0.0,0.0,15.88,previous operating day round hour,m/s
+test/forecast_wb.parquet,wb_ceiling,0,0.0,365.76,9144.0,previous operating day round hour,m
+test/forecast_wb.parquet,wb_cloud,0,0.0,0.0,100.0,previous operating day round hour,%
+test/forecast_wb.parquet,wb_dew_point,0,0.0,-27.2222,27.7778,previous operating day round hour,°C
+test/forecast_wb.parquet,wb_feel_temp,0,0.0,-23.3333,50.0,previous operating day round hour,°C
+test/forecast_wb.parquet,wb_ice,0,0.0,0.0,1.524,previous operating day round hour,mm
+test/forecast_wb.parquet,wb_ice_prob,0,0.0,0.0,73.0,previous operating day round hour,%
+test/forecast_wb.parquet,wb_precip_prob,0,0.0,0.0,90.0,previous operating day round hour,%
+test/forecast_wb.parquet,wb_rain,0,0.0,0.0,49.784,previous operating day round hour,mm
+test/forecast_wb.parquet,wb_rain_prob,0,0.0,0.0,90.0,previous operating day round hour,%
+test/forecast_wb.parquet,wb_rel_hum,0,0.0,9.0,100.0,previous operating day round hour,%
+test/forecast_wb.parquet,wb_snow,0,0.0,0.0,52.832,previous operating day round hour,cm
+test/forecast_wb.parquet,wb_snow_prob,0,0.0,0.0,83.0,previous operating day round hour,%
+test/forecast_wb.parquet,wb_temp,0,0.0,-19.4444,38.8889,previous operating day round hour,°C
+test/forecast_wb.parquet,wb_total_liq,0,0.0,0.0,49.784,previous operating day round hour,mm
+test/forecast_wb.parquet,wb_uv_idx,0,0.0,0.0,12.0,previous operating day round hour,지수
+test/forecast_wb.parquet,wb_vis,0,0.0,0.402336,16.0934,previous operating day round hour,km
+test/forecast_wb.parquet,wb_wet_bulb_temp,0,0.0,-19.4444,29.4444,previous operating day round hour,°C
+test/forecast_wb.parquet,wb_wind_dir,0,0.0,1.0,360.0,previous operating day round hour,°
+test/forecast_wb.parquet,wb_wind_gust_spd,0,0.0,0.0,83.364,previous operating day round hour,km/h
+test/forecast_wb.parquet,wb_wind_speed,0,0.0,0.0,70.3283,previous operating day round hour,km/h
+train/forecast_wa.parquet,wa_cloud,0,0.0,0.0,100.0,previous operating day round hour,%
+train/forecast_wa.parquet,wa_ground_press,0,0.0,966.0,1039.0,previous operating day round hour,hPa
+train/forecast_wa.parquet,wa_humidity,0,0.0,7.0,104.0,previous operating day round hour,%
+train/forecast_wa.parquet,wa_rain,0,0.0,0.0,57.38,previous operating day round hour,mm
+train/forecast_wa.parquet,wa_snow,0,0.0,0.0,10.32,previous operating day round hour,mm
+train/forecast_wa.parquet,wa_temp,0,0.0,-19.99,37.64,previous operating day round hour,°C
+train/forecast_wa.parquet,wa_temp_max,0,0.0,-19.99,37.64,previous operating day round hour,°C
+train/forecast_wa.parquet,wa_temp_min,0,0.0,-19.99,37.64,previous operating day round hour,°C
+train/forecast_wa.parquet,wa_wind_dir,0,0.0,0.0,360.0,previous operating day round hour,°
+train/forecast_wa.parquet,wa_wind_speed,0,0.0,0.0,24.07,previous operating day round hour,m/s
+train/forecast_wb.parquet,wb_ceiling,0,0.0,0.0,16337.3,previous operating day round hour,m
+train/forecast_wb.parquet,wb_cloud,0,0.0,0.0,100.0,previous operating day round hour,%
+train/forecast_wb.parquet,wb_dew_point,0,0.0,-49.4444,29.4444,previous operating day round hour,°C
+train/forecast_wb.parquet,wb_feel_temp,0,0.0,-30.5556,53.3333,previous operating day round hour,°C
+train/forecast_wb.parquet,wb_ice,1298,0.0002308788551254,0.0,7.112,previous operating day round hour,mm
+train/forecast_wb.parquet,wb_ice_prob,1298,0.0002308788551254,0.0,85.0,previous operating day round hour,%
+train/forecast_wb.parquet,wb_precip_prob,1298,0.0002308788551254,0.0,90.0,previous operating day round hour,%
+train/forecast_wb.parquet,wb_rain,1298,0.0002308788551254,0.0,102.108,previous operating day round hour,mm
+train/forecast_wb.parquet,wb_rain_prob,1298,0.0002308788551254,0.0,90.0,previous operating day round hour,%
+train/forecast_wb.parquet,wb_rel_hum,0,0.0,1.0,100.0,previous operating day round hour,%
+train/forecast_wb.parquet,wb_snow,1298,0.0002308788551254,0.0,186.69,previous operating day round hour,cm
+train/forecast_wb.parquet,wb_snow_prob,1298,0.0002308788551254,0.0,90.0,previous operating day round hour,%
+train/forecast_wb.parquet,wb_temp,0,0.0,-23.3333,38.8889,previous operating day round hour,°C
+train/forecast_wb.parquet,wb_total_liq,1298,0.0002308788551254,0.0,102.108,previous operating day round hour,mm
+train/forecast_wb.parquet,wb_uv_idx,0,0.0,0.0,12.0,previous operating day round hour,지수
+train/forecast_wb.parquet,wb_vis,0,0.0,0.0,49.9,previous operating day round hour,km
+train/forecast_wb.parquet,wb_wet_bulb_temp,0,0.0,-24.4444,30.5556,previous operating day round hour,°C
+train/forecast_wb.parquet,wb_wind_dir,0,0.0,0.0,360.0,previous operating day round hour,°
+train/forecast_wb.parquet,wb_wind_gust_spd,0,0.0,0.0,175.901,previous operating day round hour,km/h
+train/forecast_wb.parquet,wb_wind_speed,0,0.0,0.0,122.31,previous operating day round hour,km/h
+train/observed_wa.parquet,wa_cloud,0,0.0,0.0,100.0,measurement time known; receipt latency unspecified; excluded,%
+train/observed_wa.parquet,wa_ground_press,0,0.0,955.9441674975076,1043.0,measurement time known; receipt latency unspecified; excluded,hPa
+train/observed_wa.parquet,wa_humidity,0,0.0,4.0,100.0,measurement time known; receipt latency unspecified; excluded,%
+train/observed_wa.parquet,wa_rain,0,0.0,0.0,114.02806559199556,measurement time known; receipt latency unspecified; excluded,mm
+train/observed_wa.parquet,wa_snow,0,0.0,0.0,14.4173588610702,measurement time known; receipt latency unspecified; excluded,mm
+train/observed_wa.parquet,wa_temp,0,0.0,-24.0,38.99,measurement time known; receipt latency unspecified; excluded,°C
+train/observed_wa.parquet,wa_temp_max,0,0.0,-24.0,38.99,measurement time known; receipt latency unspecified; excluded,°C
+train/observed_wa.parquet,wa_temp_min,0,0.0,-24.0,38.004409799554566,measurement time known; receipt latency unspecified; excluded,°C
+train/observed_wa.parquet,wa_wind_dir,0,0.0,0.0,360.0,measurement time known; receipt latency unspecified; excluded,°
+train/observed_wa.parquet,wa_wind_speed,0,0.0,0.0,9999.0,measurement time known; receipt latency unspecified; excluded,m/s
+train/observed_wb.parquet,wb_appr_temp,0,0.0,-22.38,53.74745762711864,measurement time known; receipt latency unspecified; excluded,°C
+train/observed_wb.parquet,wb_ceiling,0,0.0,0.0,15240.0,measurement time known; receipt latency unspecified; excluded,m
+train/observed_wb.parquet,wb_cloud,0,0.0,0.0,9144.0,measurement time known; receipt latency unspecified; excluded,%
+train/observed_wb.parquet,wb_dew_point,0,0.0,-40.60166666666667,31.763333333333332,measurement time known; receipt latency unspecified; excluded,°C
+train/observed_wb.parquet,wb_feel_temp,0,0.0,-32.777049180327865,60.483333333333334,measurement time known; receipt latency unspecified; excluded,°C
+train/observed_wb.parquet,wb_feel_temp_shade,0,0.0,-32.777049180327865,54.02,measurement time known; receipt latency unspecified; excluded,°C
+train/observed_wb.parquet,wb_precip_1h,0,0.0,0.0,39.385,measurement time known; receipt latency unspecified; excluded,mm
+train/observed_wb.parquet,wb_pressure,0,0.0,0.0,1052.6180327868851,measurement time known; receipt latency unspecified; excluded,hPa
+train/observed_wb.parquet,wb_rel_hum,0,0.0,1.0,100.0,measurement time known; receipt latency unspecified; excluded,%
+train/observed_wb.parquet,wb_temp,0,0.0,-22.43,39.49016393442623,measurement time known; receipt latency unspecified; excluded,°C
+train/observed_wb.parquet,wb_uv_idx,0,0.0,0.0,68.0,measurement time known; receipt latency unspecified; excluded,지수
+train/observed_wb.parquet,wb_vis,0,0.0,0.0,77.2,measurement time known; receipt latency unspecified; excluded,km
+train/observed_wb.parquet,wb_wind_chill_temp,0,0.0,-29.945901639344264,39.39180327868852,measurement time known; receipt latency unspecified; excluded,°C
+train/observed_wb.parquet,wb_wind_dir,0,0.0,0.0,338.0,measurement time known; receipt latency unspecified; excluded,°
+train/observed_wb.parquet,wb_wind_speed,0,0.0,0.0,347.0,measurement time known; receipt latency unspecified; excluded,km/h

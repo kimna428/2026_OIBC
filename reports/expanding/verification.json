@@ -1,0 +1,354 @@
+{
+  "raw_hashes_unchanged": true,
+  "split_checks": 6,
+  "asof_history_checks": true,
+  "validation_original_only": true,
+  "observed_weather_features": false,
+  "seed": 2026,
+  "independent_prediction_audit": [
+    {
+      "file": "fold0_A_climatology_predictions.parquet",
+      "rows": 246641,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": null
+    },
+    {
+      "file": "fold0_V0_B_predictions.parquet",
+      "rows": 246641,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold0_V1_B_predictions.parquet",
+      "rows": 246641,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold0_V2_B_predictions.parquet",
+      "rows": 246641,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold0_V2_interp_B_predictions.parquet",
+      "rows": 246641,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold0_V3_B_predictions.parquet",
+      "rows": 246641,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold0_V3_C_predictions.parquet",
+      "rows": 246641,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold1_A_climatology_predictions.parquet",
+      "rows": 335139,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": null
+    },
+    {
+      "file": "fold1_V0_B_predictions.parquet",
+      "rows": 335139,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold1_V1_B_predictions.parquet",
+      "rows": 335139,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold1_V2_B_predictions.parquet",
+      "rows": 335139,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold1_V2_interp_B_predictions.parquet",
+      "rows": 335139,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold1_V3_B_predictions.parquet",
+      "rows": 335139,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold1_V3_C_predictions.parquet",
+      "rows": 335139,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold2_A_climatology_predictions.parquet",
+      "rows": 515739,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": null
+    },
+    {
+      "file": "fold2_V0_B_predictions.parquet",
+      "rows": 515739,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold2_V1_B_predictions.parquet",
+      "rows": 515739,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold2_V2_B_predictions.parquet",
+      "rows": 515739,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold2_V2_interp_B_predictions.parquet",
+      "rows": 515739,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold2_V3_B_predictions.parquet",
+      "rows": 515739,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold2_V3_C_predictions.parquet",
+      "rows": 515739,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold3_A_climatology_predictions.parquet",
+      "rows": 550368,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": null
+    },
+    {
+      "file": "fold3_V0_B_predictions.parquet",
+      "rows": 550368,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold3_V1_B_predictions.parquet",
+      "rows": 550368,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold3_V2_B_predictions.parquet",
+      "rows": 550368,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold3_V2_interp_B_predictions.parquet",
+      "rows": 550368,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold3_V3_B_predictions.parquet",
+      "rows": 550368,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold3_V3_C_predictions.parquet",
+      "rows": 550368,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold4_A_climatology_predictions.parquet",
+      "rows": 545914,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": null
+    },
+    {
+      "file": "fold4_V0_B_predictions.parquet",
+      "rows": 545914,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold4_V1_B_predictions.parquet",
+      "rows": 545914,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold4_V2_B_predictions.parquet",
+      "rows": 545914,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold4_V2_interp_B_predictions.parquet",
+      "rows": 545914,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold4_V3_B_predictions.parquet",
+      "rows": 545914,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold4_V3_C_predictions.parquet",
+      "rows": 545914,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold5_A_climatology_predictions.parquet",
+      "rows": 558624,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": null
+    },
+    {
+      "file": "fold5_V0_B_predictions.parquet",
+      "rows": 558624,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold5_V1_B_predictions.parquet",
+      "rows": 558624,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold5_V2_B_predictions.parquet",
+      "rows": 558624,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold5_V2_interp_B_predictions.parquet",
+      "rows": 558624,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold5_V3_B_predictions.parquet",
+      "rows": 558624,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    },
+    {
+      "file": "fold5_V3_C_predictions.parquet",
+      "rows": 558624,
+      "original_target_match": true,
+      "finite_nonnegative_prediction": true,
+      "cutoff_pass": true,
+      "model_sample_replay": true
+    }
+  ],
+  "dataset_schema_checks": true,
+  "identical_validation_keys_all_versions": true,
+  "source_hashes": {
+    "expanding_pipeline.py": "462bd26cb8d4be7b5af140d76114770212c031e42727839f5bfd84afccfb4673",
+    "test_expanding_pipeline.py": "4b55572a3f450d8c0f17a3e9fd56cd38ef3032da80081656cd3654e14ac58fa7",
+    "audit_expanding_pipeline.py": "56298b40134baa3c1ab15d1d82f411fb4a6971bb486846204cd28e077294ef24"
+  },
+  "generation_receipt_assumption": "Generation available at right-closed timestamp; receipt latency unspecified by provided data. C remains conditional on this assumption."
+}
