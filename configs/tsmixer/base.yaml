@@ -1,0 +1,43 @@
+name: tsmixer_v0
+model:
+  hidden_dim: 128
+  blocks: 3
+  time_hidden: 64
+  feature_hidden: 256
+  dropout: 0.1
+  site_dropout: 0.1
+data:
+  data_root: ${OIBC_DATA_ROOT:-handover 2/01_participant_dataset}
+  cache_root: ${OIBC_TSMIXER_CACHE_ROOT:-runs/tsmixer/cache_station_v1}
+split:
+  outer_fold: 5
+  dev_start: '2025-02-01'
+  dev_end: '2025-02-28'
+loss:
+  name: weighted_l1
+  huber_delta: 0.05
+group:
+  enabled: false
+  alpha: 1.0
+  beta: 0.0
+training:
+  device: auto
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.01
+  batch_size: 32
+  accumulation_steps: 1
+  num_workers: 0
+  persistent_workers: false
+  pin_memory: true
+  epochs: 30
+  patience: 6
+  min_delta: 0.0
+  seed: 2026
+  deterministic: true
+  gradient_clip: 1.0
+  selection_metric: penalty_per_hour
+  postprocess: train_calibrated
+  precision: fp32
+  cpu_threads: 2
+  save_root: ${OIBC_TSMIXER_RUN_ROOT:-runs/tsmixer}

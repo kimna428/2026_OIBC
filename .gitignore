@@ -6,6 +6,7 @@ __pycache__/
 *.py[cod]
 configs/deep_learning/*.local.yaml
 .env.local
+.venv-tsmixer/
 reports/deep_learning/smoke_artifacts/
 *.pt
 *.pth

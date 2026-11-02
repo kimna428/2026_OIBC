@@ -1,0 +1,2 @@
+# Common dependencies reuse the existing deep-learning contract. Install torch separately.
+-r ../deep_learning/requirements.txt

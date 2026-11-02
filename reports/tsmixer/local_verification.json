@@ -1,0 +1,126 @@
+{
+  "model_parameters": 305865,
+  "unit_tests": {
+    "total": 29,
+    "passed": 28,
+    "skipped": {
+      "cuda": 1
+    }
+  },
+  "raw_files_unchanged_sha256": 10,
+  "full_training_executed": false,
+  "holdout_evaluated": false,
+  "new_large_cache_created": false,
+  "source_sha256": {
+    "tsmixer/__init__.py": "957f71e589f70c071c9d85bc37f077d04c03533bf13b1c0dccd35781db985e61",
+    "tsmixer/__main__.py": "887c43d3c1b146f58da5da266ddd824ae2ebac173b472b489784ca6662d2effe",
+    "tsmixer/checkpoint.py": "1f8d1a44efd315f54314bbeecf3e938eaf6ad2f7bd3d133038c5f908d4f7fcd2",
+    "tsmixer/config.py": "72b26aeee282a4fb8e412b2e0048ac6156b9a69c2e4e5d872cb2fcec7fea773c",
+    "tsmixer/data.py": "ada66e001dd339521c2f491eeb8d919ed4296e39fa388c2901385e94185547eb",
+    "tsmixer/evaluate.py": "3443ba2fa54be7f56b85cc5cf97852e2dd6cbb584062c6e7ad7c758e0f439f53",
+    "tsmixer/inventory.py": "6777e2f23f76558fb4d70bb774fd730eeb7f014da0bdebc50b8a2b2a600731d1",
+    "tsmixer/model.py": "4bd7dc9c25266313996123d53ee3fe60070522a1dc0b5b42374c1157ab132239",
+    "tsmixer/runtime.py": "cd6009c4c9a99278edc155d809b95b0fab9876e939c0d19cc7044d2b21494a02",
+    "tsmixer/train.py": "0a77aa3abbda857cc71a7ec69131008fc8d8b1fab89135673740e2a0909d2642",
+    "deep_learning/__init__.py": "cb41e35019e977f73e75d725c3301e1049b0c8e2a3d3510af61d1db9f0ac613f",
+    "deep_learning/check_data.py": "f914b205a04e55a9a254667759158eda3c62a00cf8b49be933b52e6a65105867",
+    "deep_learning/checkpoint.py": "283415548d1062ec4f94fbd0a96a14331843f70772d26b3e35f5d5ef56f71e5b",
+    "deep_learning/compact.py": "6457c2d31f64429843baa30fa1f1f2f7729b7492abf498e068cd94bd5b98014a",
+    "deep_learning/config.py": "5dedf135c88bdad09dbce026bb4d8fdfa7bc3cdae9dc88789e78521e99ad9d31",
+    "deep_learning/dataset.py": "b0259dc1a1d58da2797fd993bd8f9d6f0d853c9650e501248365862f0d58080a",
+    "deep_learning/ensemble.py": "df07c4307781b1acb4fdaae9c964e7acac3dbad8d77e93c45854d5911e08a298",
+    "deep_learning/environment.py": "5a6ad90c2f6bcdb86b6ccfbe89ce0e31b2eaab6dd4069855e231bbc6b8a35bd5",
+    "deep_learning/evaluate.py": "4f1b0eb8d2c89ffc9a58c69010039aebb907667e491d19a252cd3d52d9b500ad",
+    "deep_learning/features.py": "5b3503b0d289df1b32db16906c0e9fe3577d711cf62cdf633d6ab0b27c8e2eca",
+    "deep_learning/inference.py": "fd38dde84f1eed5e9321b0ebdc34e5cf87938cfef7739662998ee0224fcf22aa",
+    "deep_learning/losses.py": "083c6fcd8e8b9cc4caf7aebb624550f4d7c844f6a9c946101ee9e959fa228cfb",
+    "deep_learning/metrics.py": "98d5284e424ad1a04e628f2c5a1a352aa97be05233d9ed435e88ed24ee452ba1",
+    "deep_learning/models/__init__.py": "2db7f45f02f1f8d5ca1ca876505c9a4c6ca40eb3b015f4e690f9e7dd11f47206",
+    "deep_learning/models/common.py": "6b67b2e8d844ca47b55874d3de5456a8e2347a32f160b41887f58b47a4217360",
+    "deep_learning/models/convnext1d.py": "450b0cf373b51959e789fed6b061f12ec3a83001bcffe497e088d954af16cd88",
+    "deep_learning/models/cross_site_attention.py": "b95a649f9dbd4efd0b865054b25db9a23b81bd9152d7e1fdd3c3e56b710891f4",
+    "deep_learning/models/weather_transformer.py": "5a481c7473620f7ca5e4b85b1d588d0a6a966151ba0e6833d44a17c3be125ef5",
+    "deep_learning/parity.py": "cf370ae1378a18a3d5929cf7045994f7b216c50159cd5d6a51455879cbdcd825",
+    "deep_learning/predict.py": "be93229de751d3685a64d215adf636ff63859b8f944b20fdc99d410830a62e30",
+    "deep_learning/prepare.py": "29e15056ee85e5ffc517998ce6dbd8eaa10452e37616792999244d4da9cbbe94",
+    "deep_learning/runtime.py": "c3a6ed1f49feaac079830c338d721dce6f65043c6b6fd04ba59610c5c16d8c3f",
+    "deep_learning/smoke.py": "bb4ee0babe8e0156a3569e2b7a1e4c231e45e15624ea2723b8302be6adfbf7b0",
+    "deep_learning/storage.py": "c1c042c6e6ccc55922cc0b4b84e9954f174d7c6c54ab92f81bfc879fc0ff3933",
+    "deep_learning/train.py": "ce7640e97ae711649f90d6b18d8af5d807b2187d00b3f19fc9d8d2bba7decf72",
+    "validation.py": "bfad8df870135bd349f511810e51ef3efc080f38af0fadef43d8e438a0656183"
+  },
+  "smokes": {
+    "cpu_synthetic": {
+      "steps": 5,
+      "loss": 0.22776824729936618,
+      "checkpoint_reload_matches": true,
+      "output": "runs/tsmixer/mac_synthetic_final",
+      "config_fingerprint": "de12e033e0fd8da4757d42f5225e07887b7c671a7eff2994a6c66a5edf61ebf8",
+      "cache_signature": "2f0456d08942f54507732908fc943f06b8f515a6641977205fe647749ad2c128",
+      "normalizer_cutoff": "2025-01-31 17:00:00+09:00",
+      "environment": {
+        "python": "3.13.12 (main, Mar 25 2026, 02:48:22) [Clang 22.1.1 ]",
+        "platform": "macOS-15.6.1-arm64-arm-64bit-Mach-O",
+        "machine": "arm64",
+        "numpy": "2.5.3",
+        "torch": "2.15.0",
+        "cuda_build": null,
+        "cuda_available": false,
+        "mps_built": true,
+        "mps_available": false,
+        "device": "cpu",
+        "git_commit": "98c3d778a26dd76336ada7c7dd8977c1ef159183"
+      }
+    },
+    "cpu_real_compact": {
+      "steps": 5,
+      "loss": 0.3066716995540643,
+      "checkpoint_reload_matches": true,
+      "output": "runs/tsmixer/mac_real_final",
+      "config_fingerprint": "8ea693a6a3f131024ca9c4d64ed48fca982d660fb4f68922542bec8cc63caf90",
+      "cache_signature": "d9dc08cb96dbb49769d3f8504e1c210340487fd3f5f616fed3f5e98f6271c56a",
+      "normalizer_cutoff": "2025-01-31 17:00:00+09:00",
+      "environment": {
+        "python": "3.13.12 (main, Mar 25 2026, 02:48:22) [Clang 22.1.1 ]",
+        "platform": "macOS-15.6.1-arm64-arm-64bit-Mach-O",
+        "machine": "arm64",
+        "numpy": "2.5.3",
+        "torch": "2.15.0",
+        "cuda_build": null,
+        "cuda_available": false,
+        "mps_built": true,
+        "mps_available": false,
+        "device": "cpu",
+        "git_commit": "98c3d778a26dd76336ada7c7dd8977c1ef159183"
+      }
+    },
+    "mps_synthetic": {
+      "steps": 5,
+      "loss": 0.2384555140325615,
+      "checkpoint_reload_matches": true,
+      "output": "runs/tsmixer/mac_mps_v0",
+      "config_fingerprint": "6b5c95ed69f6e7439be63142f711d0b1fd746b595dcb366c768abd2456f53fdd",
+      "cache_signature": "2f0456d08942f54507732908fc943f06b8f515a6641977205fe647749ad2c128",
+      "normalizer_cutoff": "2025-01-31 17:00:00+09:00",
+      "environment": {
+        "python": "3.13.12 (main, Mar 25 2026, 02:48:22) [Clang 22.1.1 ]",
+        "platform": "macOS-15.6.1-arm64-arm-64bit-Mach-O",
+        "machine": "arm64",
+        "numpy": "2.5.3",
+        "torch": "2.15.0",
+        "cuda_build": null,
+        "cuda_available": false,
+        "mps_built": true,
+        "mps_available": true,
+        "device": "mps",
+        "git_commit": "98c3d778a26dd76336ada7c7dd8977c1ef159183"
+      }
+    }
+  },
+  "additional_smoke_resume": {
+    "output": "runs/tsmixer/mac_synthetic_v0",
+    "steps": 10,
+    "partial_epoch_exact_replay_claimed": false,
+    "note": "MPS deterministic guard 추가 전 소스; epoch 경계 exact resume는 별도 unit test 통과"
+  }
+}

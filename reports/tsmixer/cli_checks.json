@@ -1,0 +1,45 @@
+{
+  "mac_full_training": {
+    "passed": true,
+    "exit_code": 2,
+    "message": "TSMixer error: Full training requires Linux CUDA and --full-train; use smoke on Mac"
+  },
+  "mac_cache_generation": {
+    "passed": true,
+    "exit_code": 2,
+    "message": "TSMixer error: Cache generation is Linux/CUDA-server only; forbidden on Mac"
+  },
+  "mac_full_evaluation": {
+    "passed": true,
+    "exit_code": 2,
+    "message": "TSMixer error: Full development evaluation runs on Linux CUDA; Mac uses bounded unit/smoke tests"
+  },
+  "missing_data": {
+    "passed": true,
+    "exit_code": 2,
+    "message": "TSMixer error: Missing provided data files:\n/private/tmp/oibc-nonexistent-test-data/sites.csv\n/private/tmp/oibc-nonexistent-test-data/smp.csv\n/private/tmp/oibc-nonexistent-test-data/train/smp.csv\n/private/tmp/oibc-nonexistent-test-data/train/generation.parquet\n/private/tmp/oibc-nonexistent-test-data/train/forecast_wa.parquet\n/private/tmp/oibc-nonexistent-test-data/train/forecast_wb.parquet\n/private/tmp/oibc-nonexistent-test-data/test/forecast_wa.parquet\n/private/tmp/oibc-nonexistent-test-data/test/forecast_wb.parquet\nCopy the competition dataset or set OIBC_DATA_ROOT; no data will be synthesized."
+  },
+  "too_many_steps": {
+    "passed": true,
+    "exit_code": 2,
+    "message": "TSMixer error: Smoke test is limited to 5..10 optimizer updates"
+  },
+  "cpu_amp": {
+    "passed": true,
+    "exit_code": 2,
+    "message": "TSMixer error: CPU/MPS requires training.precision=fp32"
+  },
+  "cuda_unavailable": {
+    "passed": true,
+    "exit_code": 2,
+    "message": "TSMixer error: CUDA unavailable: install a driver-compatible CUDA PyTorch wheel on Linux"
+  },
+  "shell_syntax": {
+    "passed": true,
+    "scripts": 7
+  },
+  "wrong_working_directory": {
+    "passed": true,
+    "exit_code": 2
+  }
+}

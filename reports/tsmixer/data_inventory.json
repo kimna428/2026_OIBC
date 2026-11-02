@@ -1,0 +1,214 @@
+{
+  "files": {
+    "sites.csv": {
+      "bytes": 14591,
+      "present": true,
+      "required": true,
+      "rows": 253,
+      "schema": {
+        "site_id": "str",
+        "current_group": "str",
+        "capacity_kw": "float64",
+        "lat": "float64",
+        "lon": "float64",
+        "wa_station": "str",
+        "wb_station": "str",
+        "wa_dist": "float64",
+        "wb_dist": "float64"
+      },
+      "sha256": "93d166fffd009c3643db748fc6d5a1d48851e5f70b314171130e6ab6b7997ea2"
+    },
+    "smp.csv": {
+      "bytes": 302811,
+      "present": true,
+      "required": true,
+      "rows": 8760,
+      "schema": {
+        "ts": "str",
+        "smp": "float64",
+        "k": "int64"
+      },
+      "sha256": "396bfadb73332f5b8ce61821ad9425ee93052ced2b71f0666cf071d2b95fa79c"
+    },
+    "train/smp.csv": {
+      "bytes": 1263592,
+      "present": true,
+      "required": true,
+      "rows": 38688,
+      "schema": {
+        "ts": "str",
+        "smp": "float64"
+      },
+      "sha256": "6ae610fc3e527e603681da3867ecd79d210ed24a17e676ac16149ba7d349645b"
+    },
+    "train/generation.parquet": {
+      "bytes": 4828308,
+      "present": true,
+      "required": true,
+      "rows": 4392566,
+      "schema": {
+        "site_id": "string",
+        "ts": "timestamp[ms, tz=Asia/Seoul]",
+        "energy": "double"
+      },
+      "sha256": "a2c334a5d2dd0983be78c7ac138e25a013cf70fd9d027515953129ea79964e95"
+    },
+    "train/forecast_wa.parquet": {
+      "bytes": 44885818,
+      "present": true,
+      "required": true,
+      "rows": 4710356,
+      "schema": {
+        "wa_station": "string",
+        "round": "int64",
+        "ts": "timestamp[us, tz=Asia/Seoul]",
+        "wa_cloud": "double",
+        "wa_temp": "double",
+        "wa_temp_max": "double",
+        "wa_temp_min": "double",
+        "wa_humidity": "double",
+        "wa_ground_press": "double",
+        "wa_wind_speed": "double",
+        "wa_wind_dir": "double",
+        "wa_rain": "double",
+        "wa_snow": "double"
+      },
+      "sha256": "a2bda6853d5dcc2dc140e976c1cbc75d0d9a085b41ba17f5ac994704d364a784"
+    },
+    "train/forecast_wb.parquet": {
+      "bytes": 44767686,
+      "present": true,
+      "required": true,
+      "rows": 5621996,
+      "schema": {
+        "wb_station": "string",
+        "round": "int64",
+        "ts": "timestamp[us, tz=Asia/Seoul]",
+        "wb_temp": "double",
+        "wb_feel_temp": "double",
+        "wb_wet_bulb_temp": "double",
+        "wb_dew_point": "double",
+        "wb_wind_speed": "double",
+        "wb_wind_dir": "double",
+        "wb_wind_gust_spd": "double",
+        "wb_rel_hum": "double",
+        "wb_vis": "double",
+        "wb_ceiling": "double",
+        "wb_uv_idx": "double",
+        "wb_precip_prob": "double",
+        "wb_rain_prob": "double",
+        "wb_snow_prob": "double",
+        "wb_ice_prob": "double",
+        "wb_total_liq": "double",
+        "wb_rain": "double",
+        "wb_snow": "double",
+        "wb_ice": "double",
+        "wb_cloud": "double"
+      },
+      "sha256": "e8e5de90652c1e949e695b3f8b7f3e1001d3c4a02e3961a42bca1921d2439483"
+    },
+    "test/forecast_wa.parquet": {
+      "bytes": 10181524,
+      "present": true,
+      "required": true,
+      "rows": 1068456,
+      "schema": {
+        "wa_station": "string",
+        "round": "int64",
+        "ts": "timestamp[us, tz=Asia/Seoul]",
+        "wa_cloud": "double",
+        "wa_temp": "double",
+        "wa_temp_max": "double",
+        "wa_temp_min": "double",
+        "wa_humidity": "double",
+        "wa_ground_press": "double",
+        "wa_wind_speed": "double",
+        "wa_wind_dir": "double",
+        "wa_rain": "double",
+        "wa_snow": "double"
+      },
+      "sha256": "610029e17c00cec1498fc2e48a980269496ece977e81d3d57302361a064a5eab"
+    },
+    "test/forecast_wb.parquet": {
+      "bytes": 10366000,
+      "present": true,
+      "required": true,
+      "rows": 1278960,
+      "schema": {
+        "wb_station": "string",
+        "round": "int64",
+        "ts": "timestamp[us, tz=Asia/Seoul]",
+        "wb_temp": "double",
+        "wb_feel_temp": "double",
+        "wb_wet_bulb_temp": "double",
+        "wb_dew_point": "double",
+        "wb_wind_speed": "double",
+        "wb_wind_dir": "double",
+        "wb_wind_gust_spd": "double",
+        "wb_rel_hum": "double",
+        "wb_vis": "double",
+        "wb_ceiling": "double",
+        "wb_uv_idx": "double",
+        "wb_precip_prob": "double",
+        "wb_rain_prob": "double",
+        "wb_snow_prob": "double",
+        "wb_ice_prob": "double",
+        "wb_total_liq": "double",
+        "wb_rain": "double",
+        "wb_snow": "double",
+        "wb_ice": "double",
+        "wb_cloud": "double"
+      },
+      "sha256": "fe03948b231c50e4688f1f4cdcef1613cb36c72b0e1f93972824b707abe04219"
+    },
+    "train/observed_wa.parquet": {
+      "bytes": 83260828,
+      "present": true,
+      "required": false,
+      "rows": 2359974,
+      "schema": {
+        "wa_station": "string",
+        "ts": "timestamp[us, tz=Asia/Seoul]",
+        "wa_cloud": "double",
+        "wa_temp": "double",
+        "wa_temp_max": "double",
+        "wa_temp_min": "double",
+        "wa_humidity": "double",
+        "wa_ground_press": "double",
+        "wa_wind_speed": "double",
+        "wa_wind_dir": "double",
+        "wa_rain": "double",
+        "wa_snow": "double"
+      },
+      "sha256": "e002265b5a7b92d8272db4f72043afddc472bde9a4c1704b3a266002655ba2b9"
+    },
+    "train/observed_wb.parquet": {
+      "bytes": 88303201,
+      "present": true,
+      "required": false,
+      "rows": 2824223,
+      "schema": {
+        "wb_station": "string",
+        "ts": "timestamp[us, tz=Asia/Seoul]",
+        "wb_temp": "double",
+        "wb_feel_temp": "double",
+        "wb_feel_temp_shade": "double",
+        "wb_rel_hum": "double",
+        "wb_dew_point": "double",
+        "wb_wind_dir": "double",
+        "wb_wind_speed": "double",
+        "wb_uv_idx": "double",
+        "wb_vis": "double",
+        "wb_cloud": "double",
+        "wb_ceiling": "double",
+        "wb_pressure": "double",
+        "wb_appr_temp": "double",
+        "wb_wind_chill_temp": "double",
+        "wb_precip_1h": "double"
+      },
+      "sha256": "d4cb3ee33f0555083285e65cd7d43c2d0a16e19fcc62b4cffa95799131817aac"
+    }
+  },
+  "root": "handover 2/01_participant_dataset",
+  "read_only": true
+}
