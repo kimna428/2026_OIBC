@@ -1,0 +1,42 @@
+{
+  "weights": [
+    0.9,
+    0.1
+  ],
+  "criterion": "development official penalty per hour",
+  "development_penalty_per_hour": 17901.323647209716,
+  "selection_end": "2025-02-28 00:00:00+09:00",
+  "holdout_used": false,
+  "feature_signature": "241c1af132c98e255e3ac0cb55521c0ce6b851c980001a612f4ad09c7822c4ef",
+  "components": [
+    {
+      "selected_dev_signature": "fca8a041b7ba5a53eb706247a00f92b0c7432fb6ac8cab2c0b08dff5bb6ee0e2",
+      "architecture": {
+        "name": "cnn",
+        "width": 352,
+        "depth": 5,
+        "kernel_size": 7,
+        "expansion": 4,
+        "dropout": 0.1,
+        "gradient_checkpointing": false,
+        "site_dropout": 0.1
+      },
+      "seed": 2026
+    },
+    {
+      "selected_dev_signature": "5884de1b62719ba48895050aaf77b435b86662f3eb89a19b6671df45bbbba739",
+      "architecture": {
+        "name": "transformer",
+        "d_model": 448,
+        "heads": 8,
+        "layers": 6,
+        "feedforward": 2048,
+        "dropout": 0.1,
+        "gradient_checkpointing": true,
+        "site_dropout": 0.1
+      },
+      "seed": 2026
+    }
+  ],
+  "smoke_test": false
+}

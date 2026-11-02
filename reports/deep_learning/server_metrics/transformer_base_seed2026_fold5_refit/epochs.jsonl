@@ -1,0 +1,12 @@
+{"stage": 0, "epoch": 0, "step": 1250, "train_loss": 0.06889982796570404, "validation": null, "peak_allocated_bytes": 408869376, "peak_reserved_bytes": 457179136, "smoke_test": false, "synthetic": false}
+{"stage": 0, "epoch": 1, "step": 2500, "train_loss": 0.05351760882993086, "validation": null, "peak_allocated_bytes": 408869376, "peak_reserved_bytes": 457179136, "smoke_test": false, "synthetic": false}
+{"stage": 0, "epoch": 2, "step": 3750, "train_loss": 0.05010716218043681, "validation": null, "peak_allocated_bytes": 408869376, "peak_reserved_bytes": 459276288, "smoke_test": false, "synthetic": false}
+{"stage": 0, "epoch": 3, "step": 5000, "train_loss": 0.04812580745901261, "validation": null, "peak_allocated_bytes": 408869376, "peak_reserved_bytes": 459276288, "smoke_test": false, "synthetic": false}
+{"stage": 0, "epoch": 4, "step": 6250, "train_loss": 0.046438433313403145, "validation": null, "peak_allocated_bytes": 408869376, "peak_reserved_bytes": 459276288, "smoke_test": false, "synthetic": false}
+{"stage": 0, "epoch": 5, "step": 7500, "train_loss": 0.04489534086107659, "validation": null, "peak_allocated_bytes": 408869376, "peak_reserved_bytes": 459276288, "smoke_test": false, "synthetic": false}
+{"stage": 0, "epoch": 6, "step": 8750, "train_loss": 0.04359687147673224, "validation": null, "peak_allocated_bytes": 408869376, "peak_reserved_bytes": 459276288, "smoke_test": false, "synthetic": false}
+{"stage": 0, "epoch": 7, "step": 10000, "train_loss": 0.04230403072204815, "validation": null, "peak_allocated_bytes": 408869376, "peak_reserved_bytes": 459276288, "smoke_test": false, "synthetic": false}
+{"stage": 0, "epoch": 8, "step": 11250, "train_loss": 0.04101284581865249, "validation": null, "peak_allocated_bytes": 408869376, "peak_reserved_bytes": 459276288, "smoke_test": false, "synthetic": false}
+{"stage": 0, "epoch": 9, "step": 12500, "train_loss": 0.040014887971728266, "validation": null, "peak_allocated_bytes": 408869376, "peak_reserved_bytes": 459276288, "smoke_test": false, "synthetic": false}
+{"stage": 0, "epoch": 10, "step": 13750, "train_loss": 0.039014217280158525, "validation": null, "peak_allocated_bytes": 403246592, "peak_reserved_bytes": 459276288, "smoke_test": false, "synthetic": false}
+{"stage": 0, "epoch": 11, "step": 15000, "train_loss": 0.038015309721976816, "validation": null, "peak_allocated_bytes": 402771456, "peak_reserved_bytes": 459276288, "smoke_test": false, "synthetic": false}

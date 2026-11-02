@@ -44,3 +44,44 @@ __pycache__/
 /reports/third_experiment/predictions/
 /reports/third_experiment/provenance/
 
+
+# ===== OIBC large artifacts =====
+
+# Model checkpoints
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+
+# Datasets and numerical caches
+*.parquet
+*.npy
+*.npz
+*.pkl
+*.pickle
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+
+# Generated directories
+/runs/
+/oibc-runs/
+/oibc-cache-station-v1/
+/analysis/deep_learning/cache/
+/analysis/datasets/
+/analysis/results/
+/reports/expanding/datasets/
+/reports/third_experiment/models/
+
+# Competition raw data
+/handover 2/01_participant_dataset/
+
+# Local files
+.venv/
+.venv-gpu/
+__pycache__/
+.DS_Store
+*.log

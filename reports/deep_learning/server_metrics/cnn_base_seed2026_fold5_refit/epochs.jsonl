@@ -1,0 +1,10 @@
+{"stage": 0, "epoch": 0, "step": 1250, "train_loss": 0.07277743398547172, "validation": null, "peak_allocated_bytes": 344937472, "peak_reserved_bytes": 417333248, "smoke_test": false, "synthetic": false}
+{"stage": 0, "epoch": 1, "step": 2500, "train_loss": 0.05458515500128269, "validation": null, "peak_allocated_bytes": 344937472, "peak_reserved_bytes": 417333248, "smoke_test": false, "synthetic": false}
+{"stage": 0, "epoch": 2, "step": 3750, "train_loss": 0.05101022262871265, "validation": null, "peak_allocated_bytes": 344937472, "peak_reserved_bytes": 417333248, "smoke_test": false, "synthetic": false}
+{"stage": 0, "epoch": 3, "step": 5000, "train_loss": 0.04794452414810658, "validation": null, "peak_allocated_bytes": 344937472, "peak_reserved_bytes": 417333248, "smoke_test": false, "synthetic": false}
+{"stage": 0, "epoch": 4, "step": 6250, "train_loss": 0.04546829701066017, "validation": null, "peak_allocated_bytes": 344937472, "peak_reserved_bytes": 417333248, "smoke_test": false, "synthetic": false}
+{"stage": 0, "epoch": 5, "step": 7500, "train_loss": 0.04317401008605957, "validation": null, "peak_allocated_bytes": 344937472, "peak_reserved_bytes": 417333248, "smoke_test": false, "synthetic": false}
+{"stage": 0, "epoch": 6, "step": 8750, "train_loss": 0.04106768562942743, "validation": null, "peak_allocated_bytes": 344937472, "peak_reserved_bytes": 417333248, "smoke_test": false, "synthetic": false}
+{"stage": 0, "epoch": 7, "step": 10000, "train_loss": 0.039019816969335076, "validation": null, "peak_allocated_bytes": 344937472, "peak_reserved_bytes": 417333248, "smoke_test": false, "synthetic": false}
+{"stage": 0, "epoch": 8, "step": 11250, "train_loss": 0.03738094650059939, "validation": null, "peak_allocated_bytes": 344937472, "peak_reserved_bytes": 417333248, "smoke_test": false, "synthetic": false}
+{"stage": 0, "epoch": 9, "step": 12500, "train_loss": 0.03582084961235523, "validation": null, "peak_allocated_bytes": 344937472, "peak_reserved_bytes": 417333248, "smoke_test": false, "synthetic": false}

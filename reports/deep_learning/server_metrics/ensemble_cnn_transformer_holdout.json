@@ -1,0 +1,22 @@
+{
+  "site_cf_mae": 0.03337693044123076,
+  "site_kwh_mae": 5.92663595554482,
+  "observed_site_hours": 558624,
+  "scored_hours": 2208,
+  "excluded_hours": 0,
+  "score_available": true,
+  "group": "total",
+  "mae_kwh": 367.998807809203,
+  "penalty_krw": 41761156.0372996,
+  "score_krw": 2166332475.680166,
+  "penalty_per_hour": 18913.567045878444,
+  "split": "holdout",
+  "weights": [
+    0.9,
+    0.1
+  ],
+  "synthetic": false,
+  "not_model_performance": false,
+  "selection_end": "2025-02-28 00:00:00+09:00",
+  "holdout_used_for_weight_selection": false
+}
