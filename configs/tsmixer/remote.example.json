@@ -1,0 +1,10 @@
+{
+  "SSH_HOST": "oibc-gpu",
+  "REMOTE_REPO_DIR": "/srv/your-user/2026_OIBC_tsmixer",
+  "REMOTE_BRANCH": "feature/tsmixer-v0-mac-cuda",
+  "REMOTE_DATA_ROOT": "/srv/your-user/data/01_participant_dataset",
+  "REMOTE_CACHE_ROOT": "/srv/your-user/2026_OIBC_tsmixer/runs/tsmixer/cache_station_v1",
+  "REMOTE_PYTHON": "/srv/your-user/2026_OIBC_tsmixer/.venv-tsmixer/bin/python",
+  "REMOTE_RUN_ROOT": "/srv/your-user/2026_OIBC_tsmixer/runs/tsmixer/remote",
+  "REMOTE_BOOTSTRAP_PYTHON": "python3"
+}

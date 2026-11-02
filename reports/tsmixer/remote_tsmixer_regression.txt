@@ -1,0 +1,34 @@
+test_accumulation_matches_combined_weighted_batch (test_tsmixer.DataTests.test_accumulation_matches_combined_weighted_batch) ... ok
+test_bounded_smoke_view_and_loader (test_tsmixer.DataTests.test_bounded_smoke_view_and_loader) ... ok
+test_cache_signature_tampering_rejected (test_tsmixer.DataTests.test_cache_signature_tampering_rejected) ... ok
+test_epoch_checkpoint_resume_exact (test_tsmixer.DataTests.test_epoch_checkpoint_resume_exact) ... ok
+test_invalid_targets_excluded_only_from_training (test_tsmixer.DataTests.test_invalid_targets_excluded_only_from_training) ... ok
+test_last_day_masks_after_cutoff (test_tsmixer.DataTests.test_last_day_masks_after_cutoff) ... ok
+test_mac_full_train_guard_before_data_or_writes (test_tsmixer.DataTests.test_mac_full_train_guard_before_data_or_writes) ... ok
+test_missing_and_target_mask (test_tsmixer.DataTests.test_missing_and_target_mask) ... ok
+test_normalizer_ignores_future_labels_and_weather (test_tsmixer.DataTests.test_normalizer_ignores_future_labels_and_weather) ... ok
+test_operating_day_and_17_cutoff (test_tsmixer.DataTests.test_operating_day_and_17_cutoff) ... ok
+test_round_contract (test_tsmixer.DataTests.test_round_contract) ... ok
+test_spawn_worker_bounded_loader (test_tsmixer.DataTests.test_spawn_worker_bounded_loader) ... ok
+test_streaming_evaluation_matches_manual_canonical_predictions (test_tsmixer.DataTests.test_streaming_evaluation_matches_manual_canonical_predictions) ... ok
+test_v0_rejects_group_loss_and_invalid_config (test_tsmixer.DataTests.test_v0_rejects_group_loss_and_invalid_config) ... ok
+test_weighted_l1_uses_capacity_and_price_but_not_model_inputs (test_tsmixer.DataTests.test_weighted_l1_uses_capacity_and_price_but_not_model_inputs) ... ok
+test_backward_finite (test_tsmixer.ModelTests.test_backward_finite) ... ok
+test_canonical_reconstruction_rejects_partial (test_tsmixer.ModelTests.test_canonical_reconstruction_rejects_partial) ... ok
+test_cpu_checkpoint_save_reload (test_tsmixer.ModelTests.test_cpu_checkpoint_save_reload) ... ok
+test_cuda_smoke_and_cpu_parity (test_tsmixer.ModelTests.test_cuda_smoke_and_cpu_parity) ... skipped 'CUDA runtime unavailable'
+test_default_shape_and_parameters (test_tsmixer.ModelTests.test_default_shape_and_parameters) ... ok
+test_feature_mlp_axis_no_cross_hour_influence (test_tsmixer.ModelTests.test_feature_mlp_axis_no_cross_hour_influence) ... ok
+test_five_feature_public_contract (test_tsmixer.ModelTests.test_five_feature_public_contract) ... ok
+test_fleet_interface_and_canonical_order (test_tsmixer.ModelTests.test_fleet_interface_and_canonical_order) ... ok
+test_invalid_dimensions_and_forbidden_inputs (test_tsmixer.ModelTests.test_invalid_dimensions_and_forbidden_inputs) ... ok
+test_mps_smoke_and_cpu_parity (test_tsmixer.ModelTests.test_mps_smoke_and_cpu_parity) ... ok
+test_no_batch_mixing_and_cpu_inference_consistency (test_tsmixer.ModelTests.test_no_batch_mixing_and_cpu_inference_consistency) ... ok
+test_static_features_affect_output (test_tsmixer.ModelTests.test_static_features_affect_output) ... ok
+test_time_mlp_axis_and_cross_hour_influence (test_tsmixer.ModelTests.test_time_mlp_axis_and_cross_hour_influence) ... ok
+test_unavailable_devices_fail (test_tsmixer.ModelTests.test_unavailable_devices_fail) ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 8.974s
+
+OK (skipped=1)

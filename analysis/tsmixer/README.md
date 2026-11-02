@@ -194,3 +194,16 @@ python -m analysis.tsmixer train --help
 모든 설정은 별도 YAML 또는 `--set section.key=value`로 바꿀 수 있다. data/cache 경로는 `--data-root`, `--cache-root`도 지원한다. 장치는 `--device auto|cpu|mps|cuda`. 임의 모델 입력·group loss·알 수 없는 architecture 설정은 오류로 처리한다. v0 loss는 weighted L1으로 고정한다. 단위 테스트 외에서는 synthetic 체크포인트로 실데이터 성능을 평가할 수 없다.
 
 GRU 구현은 현재 저장소에서 발견되지 않았다. 따라서 CNN·Transformer와 입력·평가 계약은 맞췄지만 GRU와 동일 조건임을 확인했다고 주장하지 않는다. 공식 채점기/문제정의서가 없으므로 기존 로컬 정산 구현을 재사용했다는 범위에서 호환성을 해석한다.
+
+## Mac에서 원격 학습 제어
+
+기존 학습·평가 CLI를 변경하지 않고 SSH 실행·상태 조회·결과 회수를 추가했다. 최초 설정과 명시적 캐시/검증 옵션은 [원격 실행 안내](../../scripts/tsmixer/REMOTE_README_KO.md)를 따른다.
+
+```bash
+bash scripts/tsmixer/remote_setup.sh
+bash scripts/tsmixer/remote_launch.sh
+bash scripts/tsmixer/remote_status.sh
+bash scripts/tsmixer/remote_fetch.sh <experiment_id>
+```
+
+기본 setup은 검사 전용이다. launch는 사용자가 직접 실행할 때만 기존 `--full-train` 학습과 development 평가를 시작한다. 설정 파일과 회수 결과는 Git에서 제외하며, SSH·GPU 서버 통합 검사는 사용자가 설정을 마친 뒤 명시적으로 수행한다.

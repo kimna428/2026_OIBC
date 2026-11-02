@@ -1,0 +1,36 @@
+{
+  "remote_tests": {
+    "total": 37,
+    "passed": 37
+  },
+  "tsmixer_regression": {
+    "total": 29,
+    "passed": 28,
+    "skipped_cuda": 1
+  },
+  "shell_syntax_passed": 11,
+  "actual_server_ssh_attempted": false,
+  "github_push_performed": false,
+  "remote_gpu_training_performed": false,
+  "holdout_evaluated": false,
+  "official_test_inference": false,
+  "network_tests": "mocked SSH/rsync; real Git/rsync integration uses local temporary paths only",
+  "unchanged_core_files_sha256": {
+    "analysis/tsmixer/train.py": "0a77aa3abbda857cc71a7ec69131008fc8d8b1fab89135673740e2a0909d2642",
+    "analysis/tsmixer/evaluate.py": "3443ba2fa54be7f56b85cc5cf97852e2dd6cbb584062c6e7ad7c758e0f439f53",
+    "analysis/tsmixer/model.py": "4bd7dc9c25266313996123d53ee3fe60070522a1dc0b5b42374c1157ab132239",
+    "analysis/tsmixer/data.py": "ada66e001dd339521c2f491eeb8d919ed4296e39fa388c2901385e94185547eb",
+    "analysis/tsmixer/config.py": "72b26aeee282a4fb8e412b2e0048ac6156b9a69c2e4e5d872cb2fcec7fea773c",
+    "configs/tsmixer/base.yaml": "b342bdcbd6db1fd63415527ce3b755680ac0e6707dd3ad14456c1fa0d076e81b",
+    "scripts/tsmixer/server_preflight.sh": "61a60e3b38b5fa82e6442b680cb5f1124021aeede795829a539688cdbec94299",
+    "scripts/tsmixer/prepare_cache.sh": "fc8c1ee8717f02185da1a71d37d14182b81118fdfe3b6c14becccbef1e46142d",
+    "scripts/tsmixer/smoke.sh": "2ebb7c67597c66d9d1fd6601fc1dc76c86e2c67a4a8aa6df78365e4a119a56ec",
+    "scripts/tsmixer/train_development.sh": "2dd5cfa37be9148f889749558ac3270a420fa9d5f1147c9be2508147a1f12b29"
+  },
+  "new_control_sources_sha256": {
+    "scripts/tsmixer/remote_agent.py": "324a0652f6d6e43d08d54654e8240f2e12db9a4dad001d642dd302a3043da726",
+    "scripts/tsmixer/remote_control.py": "a0f271247ba4e5f66de1c74ae8857bf3e4f528bb199db00e8cd1781b2f024826",
+    "scripts/tsmixer/remote_worker.py": "49911726de81cba846b4f6c3d144200d04328f8b77938f4ba234931eda222ae4",
+    "scripts/tsmixer/tests/test_remote.py": "6c0dfac4164fd805e92f27713f8c3128a21473314d0ded187f33a1711ff15617"
+  }
+}
