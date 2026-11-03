@@ -213,3 +213,8 @@ bash scripts/tsmixer/remote_fetch.sh <experiment_id>
 [`train_colab.ipynb`](../../train_colab.ipynb)는 기본 synthetic5step smoke로 시작하며, Drive 원본을 로컬 디스크로 복사하고 기존 compact 전처리·학습·dev 평가를 호출한다. 선택적 `--backup-root`로 완료 epoch마다 검증된 generation을 저장하고 정상 checkpoint를 복원한다. 원래 constant LR을 유지하면서 scheduler 상태를 checkpoint에 추가했다.
 
 셀1~12 실행 순서, 전체 학습 전환, Drive 경로와 Resume 조건은 [Colab 한국어 안내](../../scripts/tsmixer/colab/README_KO.md)를 따른다. 기존 checkpoint는 보존하며 이전 소스의 실험은 그 commit에서 재개한다. Colab 변경은 GitHub에 반영한 다음 노트북에서 clone해야 한다.
+
+## 과거 1년 백테스트 및 그룹 비교
+
+실행·평가 정의와 주의사항은 [YEAR_BACKTEST_KO.md](YEAR_BACKTEST_KO.md)에 정리했다.
+기존 `train`, `evaluate` CLI 대신 별도 `analysis.tsmixer.year_backtest`를 사용한다.
