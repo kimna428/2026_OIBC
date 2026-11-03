@@ -1,0 +1,57 @@
+test_all_corrupt_fail_not_silent_fresh_training (test_colab.BackupTests.test_all_corrupt_fail_not_silent_fresh_training) ... ok
+test_backup_excludes_cache_and_temporary_files (test_colab.BackupTests.test_backup_excludes_cache_and_temporary_files) ... ok
+test_backup_path_traversal_and_nested_dest_rejected (test_colab.BackupTests.test_backup_path_traversal_and_nested_dest_rejected) ... ok
+test_backup_restore_preserves_all_state (test_colab.BackupTests.test_backup_restore_preserves_all_state) ... ok
+test_corrupt_best_falls_back (test_colab.BackupTests.test_corrupt_best_falls_back) ... ok
+test_corrupt_latest_falls_back (test_colab.BackupTests.test_corrupt_latest_falls_back) ... ok
+test_empty_backup_returns_none (test_colab.BackupTests.test_empty_backup_returns_none) ... ok
+test_failed_copy_has_no_commit_marker_and_old_backup_survives (test_colab.BackupTests.test_failed_copy_has_no_commit_marker_and_old_backup_survives) ... ok
+test_fuse_without_fsync_still_verifies_generation (test_colab.BackupTests.test_fuse_without_fsync_still_verifies_generation) ... ok
+test_partial_newer_generation_ignored (test_colab.BackupTests.test_partial_newer_generation_ignored) ... ok
+test_real_io_error_is_not_ignored (test_colab.BackupTests.test_real_io_error_is_not_ignored) ... ok
+test_restore_never_overwrites_local_run (test_colab.BackupTests.test_restore_never_overwrites_local_run) ... ok
+test_session_pin_config_and_source (test_colab.BackupTests.test_session_pin_config_and_source) ... ok
+test_csv_uses_canonical_sites_capacity_groups_and_kst (test_colab.DataAndExportTests.test_csv_uses_canonical_sites_capacity_groups_and_kst) ... ok
+test_logging_subprocess_success_failure (test_colab.DataAndExportTests.test_logging_subprocess_success_failure) ... small test
+ok
+test_missing_or_corrupt_drive_data_not_copied (test_colab.DataAndExportTests.test_missing_or_corrupt_drive_data_not_copied) ... ok
+test_verified_local_dataset_copy_and_conflict (test_colab.DataAndExportTests.test_verified_local_dataset_copy_and_conflict) ... ok
+test_constant_scheduler_epoch_resume_is_exact (test_colab.ResumeAndNotebookTests.test_constant_scheduler_epoch_resume_is_exact) ... ok
+test_cpu_smoke_backup_restore_resume_missing_synthetic_cache (test_colab.ResumeAndNotebookTests.test_cpu_smoke_backup_restore_resume_missing_synthetic_cache) ... {"epoch": 1, "global_step": 5, "loss": 0.2425229869447313, "updates": 5, "site_mass": 8880000.0, "gradient_norm": 1.4193429946899414, "development": null, "smoke_test": true, "learning_rate": 0.001}
+{"epoch": 2, "global_step": 10, "loss": 0.19533820171437327, "updates": 5, "site_mass": 8464000.0, "gradient_norm": 0.626372754573822, "development": null, "smoke_test": true, "learning_rate": 0.001}
+ok
+test_notebook_is_unexecuted_valid_python_and_smoke_default (test_colab.ResumeAndNotebookTests.test_notebook_is_unexecuted_valid_python_and_smoke_default) ... ok
+test_accumulation_matches_combined_weighted_batch (test_tsmixer.DataTests.test_accumulation_matches_combined_weighted_batch) ... ok
+test_bounded_smoke_view_and_loader (test_tsmixer.DataTests.test_bounded_smoke_view_and_loader) ... ok
+test_cache_signature_tampering_rejected (test_tsmixer.DataTests.test_cache_signature_tampering_rejected) ... ok
+test_epoch_checkpoint_resume_exact (test_tsmixer.DataTests.test_epoch_checkpoint_resume_exact) ... ok
+test_invalid_targets_excluded_only_from_training (test_tsmixer.DataTests.test_invalid_targets_excluded_only_from_training) ... ok
+test_last_day_masks_after_cutoff (test_tsmixer.DataTests.test_last_day_masks_after_cutoff) ... ok
+test_mac_full_train_guard_before_data_or_writes (test_tsmixer.DataTests.test_mac_full_train_guard_before_data_or_writes) ... ok
+test_missing_and_target_mask (test_tsmixer.DataTests.test_missing_and_target_mask) ... ok
+test_normalizer_ignores_future_labels_and_weather (test_tsmixer.DataTests.test_normalizer_ignores_future_labels_and_weather) ... ok
+test_operating_day_and_17_cutoff (test_tsmixer.DataTests.test_operating_day_and_17_cutoff) ... ok
+test_round_contract (test_tsmixer.DataTests.test_round_contract) ... ok
+test_spawn_worker_bounded_loader (test_tsmixer.DataTests.test_spawn_worker_bounded_loader) ... ok
+test_streaming_evaluation_matches_manual_canonical_predictions (test_tsmixer.DataTests.test_streaming_evaluation_matches_manual_canonical_predictions) ... ok
+test_v0_rejects_group_loss_and_invalid_config (test_tsmixer.DataTests.test_v0_rejects_group_loss_and_invalid_config) ... ok
+test_weighted_l1_uses_capacity_and_price_but_not_model_inputs (test_tsmixer.DataTests.test_weighted_l1_uses_capacity_and_price_but_not_model_inputs) ... ok
+test_backward_finite (test_tsmixer.ModelTests.test_backward_finite) ... ok
+test_canonical_reconstruction_rejects_partial (test_tsmixer.ModelTests.test_canonical_reconstruction_rejects_partial) ... ok
+test_cpu_checkpoint_save_reload (test_tsmixer.ModelTests.test_cpu_checkpoint_save_reload) ... ok
+test_cuda_smoke_and_cpu_parity (test_tsmixer.ModelTests.test_cuda_smoke_and_cpu_parity) ... skipped 'CUDA runtime unavailable'
+test_default_shape_and_parameters (test_tsmixer.ModelTests.test_default_shape_and_parameters) ... ok
+test_feature_mlp_axis_no_cross_hour_influence (test_tsmixer.ModelTests.test_feature_mlp_axis_no_cross_hour_influence) ... ok
+test_five_feature_public_contract (test_tsmixer.ModelTests.test_five_feature_public_contract) ... ok
+test_fleet_interface_and_canonical_order (test_tsmixer.ModelTests.test_fleet_interface_and_canonical_order) ... ok
+test_invalid_dimensions_and_forbidden_inputs (test_tsmixer.ModelTests.test_invalid_dimensions_and_forbidden_inputs) ... ok
+test_mps_smoke_and_cpu_parity (test_tsmixer.ModelTests.test_mps_smoke_and_cpu_parity) ... ok
+test_no_batch_mixing_and_cpu_inference_consistency (test_tsmixer.ModelTests.test_no_batch_mixing_and_cpu_inference_consistency) ... ok
+test_static_features_affect_output (test_tsmixer.ModelTests.test_static_features_affect_output) ... ok
+test_time_mlp_axis_and_cross_hour_influence (test_tsmixer.ModelTests.test_time_mlp_axis_and_cross_hour_influence) ... ok
+test_unavailable_devices_fail (test_tsmixer.ModelTests.test_unavailable_devices_fail) ... ok
+
+----------------------------------------------------------------------
+Ran 49 tests in 11.403s
+
+OK (skipped=1)

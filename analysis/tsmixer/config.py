@@ -31,6 +31,8 @@ def validate(c):
     if c['group'] != {'enabled': False, 'alpha': 1.0, 'beta': 0.0}:
         raise ValueError('v0 is site-only; group training is reserved for a later experiment')
     t = c['training']
+    if t.get('scheduler', 'constant') != 'constant':
+        raise ValueError('v0 preserves the original constant learning rate scheduler')
     for k in ('batch_size', 'accumulation_steps', 'epochs', 'patience', 'cpu_threads'):
         if isinstance(t[k], bool) or not isinstance(t[k], int) or t[k] < 1:
             raise ValueError(f'{k} must be a positive integer')

@@ -33,11 +33,14 @@ def parser():
             q.add_argument('--steps', type=int, default=5)
             q.add_argument('--real-cache', action='store_true')
             q.add_argument('--resume')
+        if name in ('smoke', 'train'):
+            q.add_argument('--backup-root', help='Optional verified generation backup directory (e.g. mounted Drive)')
         if name == 'train':
             q.add_argument('--full-train', action='store_true')
             q.add_argument('--resume')
         if name == 'evaluate':
             q.add_argument('--checkpoint', required=True)
+            q.add_argument('--export-csv', action='store_true', help='Export development site/group predictions; not test/OOF')
     return p
 
 
@@ -86,7 +89,7 @@ def main(argv=None):
         try:
             result = run(c, args.output, args.device, smoke=args.action == 'smoke',
                          steps=getattr(args, 'steps', 5), real_cache=getattr(args, 'real_cache', False),
-                         resume=args.resume, full_train=getattr(args, 'full_train', False))
+                         resume=args.resume, full_train=getattr(args, 'full_train', False), backup_root=args.backup_root)
         except torch.cuda.OutOfMemoryError as exc:
             raise RuntimeError('CUDA OOM: choose a fresh run, lower training.batch_size and optionally '
                                'increase training.accumulation_steps. Inspect epochs.jsonl VRAM; no automatic retry.') from exc
@@ -135,7 +138,12 @@ def main(argv=None):
                   'config_fingerprint': ck['config_fingerprint'], 'checkpoint': str(resolve(args.checkpoint)),
                   'checkpoint_git_commit': ck['environment']['git_commit'],
                   'environment': environment(device), 'holdout_used': False}
+        from .persistence import sha256
+        result['checkpoint_sha256'] = sha256(resolve(args.checkpoint))
         write_json(output/'metrics.json', result)
+        if args.export_csv:
+            from .colab import export_development
+            export_development(output, cache, ck['plan'])
     if getattr(args, 'output', None) and args.action in ('environment', 'check-data'):
         output = resolve(args.output)
         output.parent.mkdir(parents=True, exist_ok=True)

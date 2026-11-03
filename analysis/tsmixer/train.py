@@ -93,7 +93,7 @@ def train_epoch(model, batches, optimizer, scaler, config, device, max_updates=N
 
 
 def run(config, output, requested_device=None, smoke=False, steps=5,
-        real_cache=False, resume=None, full_train=False):
+        real_cache=False, resume=None, full_train=False, backup_root=None):
     device = device_for(requested_device or config['training']['device'])
     if not smoke and (not full_train or platform.system() != 'Linux' or device.type != 'cuda'):
         raise ValueError('Full training requires Linux, CUDA and explicit --full-train; Mac is smoke-only')
@@ -107,10 +107,11 @@ def run(config, output, requested_device=None, smoke=False, steps=5,
                          'or keep deterministic=true and use CPU')
     torch.set_num_threads(config['training']['cpu_threads'])
     with GPULock(device):
-        return _run(config, resolve(output), device, smoke, steps, real_cache, resume)
+        return _run(config, resolve(output), device, smoke, steps, real_cache, resume,
+                    resolve(backup_root) if backup_root else None)
 
 
-def _run(config, output, device, smoke, steps, real_cache, resume):
+def _run(config, output, device, smoke, steps, real_cache, resume, backup_root=None):
     t = config['training']
     old = load(resolve(resume)) if resume else None
     if output.exists() and any(output.iterdir()) and old is None:
@@ -123,7 +124,9 @@ def _run(config, output, device, smoke, steps, real_cache, resume):
     if smoke and not real_cache:
         from analysis.deep_learning.smoke import synthetic_cache
         cache_root = output/'synthetic_cache'
-        if not old:
+        if not (cache_root/'train/manifest.json').is_file():
+            if cache_root.exists() and any(cache_root.iterdir()):
+                raise FileExistsError('Partial synthetic cache exists; restore into a fresh local directory')
             synthetic_cache(cache_root)
     cache = open_cache(cache_root/'train')
     if not smoke and cache.manifest['kind'] != 'provided':
@@ -166,6 +169,9 @@ def _run(config, output, device, smoke, steps, real_cache, resume):
     generator = torch.Generator().manual_seed(t['seed'])
     model = TSMixer(**dims, **config['model']).to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=t['learning_rate'], weight_decay=t['weight_decay'])
+    # The original v0 learning rate is constant. Persist a constant scheduler
+    # explicitly without introducing decay or changing the optimization recipe.
+    scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda epoch: 1.0)
     scaler = torch.amp.GradScaler('cuda', enabled=device.type == 'cuda' and t['precision'] == 'fp16')
     env = environment(device)
     if device.type == 'cuda':
@@ -174,6 +180,9 @@ def _run(config, output, device, smoke, steps, real_cache, resume):
     if old:
         model.load_state_dict(old['model'], strict=True)
         optimizer.load_state_dict(old['optimizer'])
+        if old.get('scheduler') is None:
+            raise ValueError('Checkpoint predates scheduler persistence; resume with its original source commit')
+        scheduler.load_state_dict(old['scheduler'])
         for state in optimizer.state.values():
             for k, value in state.items():
                 if isinstance(value, torch.Tensor) and k != 'step':
@@ -203,6 +212,7 @@ def _run(config, output, device, smoke, steps, real_cache, resume):
     for epoch in range(start_epoch, epoch_limit):
         info = train_epoch(model, loader(dataset, True, local_training, generator), optimizer,
                            scaler, execution, device, max_updates=remaining)
+        scheduler.step()
         global_step += info['updates']
         if smoke:
             remaining = steps-global_step
@@ -218,8 +228,12 @@ def _run(config, output, device, smoke, steps, real_cache, resume):
         best, bad = (value, 0) if improved else (best, bad+1)
         state = {**provenance, 'model': model.state_dict(), 'normalizer': normalizer,
                  'optimizer': optimizer.state_dict(), 'scaler': scaler.state_dict(),
+                 'scheduler': scheduler.state_dict(), 'scheduler_name': 'constant',
                  'run_signature': signature, 'config_fingerprint': fingerprint(config),
                  'epoch': epoch+1, 'global_step': global_step, 'best': best, 'bad_epochs': bad,
+                 'best_validation_score': best if not smoke else None,
+                 'training_complete': (remaining <= 0 if smoke else
+                                       epoch+1 >= t['epochs'] or bad >= t['patience']),
                  'loader_rng': generator.get_state(), 'rng': capture_rng(),
                  'mps_rng': torch.mps.get_rng_state() if device.type == 'mps' else None,
                  'environment': env, 'metrics': metrics, 'selection_end': plan['dev_end'],
@@ -228,13 +242,17 @@ def _run(config, output, device, smoke, steps, real_cache, resume):
         if improved:
             save(output/'best.pt', state)
         record = {'epoch': epoch+1, 'global_step': global_step, **info,
-                  'development': metrics, 'smoke_test': smoke}
+                  'development': metrics, 'smoke_test': smoke,
+                  'learning_rate': optimizer.param_groups[0]['lr']}
         if device.type == 'cuda':
             record.update(peak_allocated_bytes=torch.cuda.max_memory_allocated(),
                           peak_reserved_bytes=torch.cuda.max_memory_reserved())
         with (output/'epochs.jsonl').open('a') as stream:
             stream.write(json.dumps(record, allow_nan=False)+'\n')
         print(json.dumps(record, allow_nan=False), flush=True)
+        if backup_root:
+            from .persistence import backup_run
+            backup_run(output, backup_root)
         last_metrics = record
         if (smoke and remaining <= 0) or (not smoke and bad >= t['patience']):
             break
@@ -252,4 +270,7 @@ def _run(config, output, device, smoke, steps, real_cache, resume):
         torch.testing.assert_close(model(inputs), restored(inputs), rtol=1e-5, atol=1e-6)
     result['checkpoint_reload_matches'] = True
     write_json(output/'summary.json', result)
+    if backup_root:
+        from .persistence import backup_run
+        backup_run(output, backup_root)
     return result

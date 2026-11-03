@@ -1,0 +1,42 @@
+test_config_json_is_not_shell_sourced_and_env_overrides (test_remote.ConfigTests.test_config_json_is_not_shell_sourced_and_env_overrides) ... ok
+test_config_required_and_no_password (test_remote.ConfigTests.test_config_required_and_no_password) ... ok
+test_experiment_id_validation (test_remote.ConfigTests.test_experiment_id_validation) ... ok
+test_host_options_and_injection_rejected (test_remote.ConfigTests.test_host_options_and_injection_rejected) ... ok
+test_path_and_branch_safety (test_remote.ConfigTests.test_path_and_branch_safety) ... ok
+test_bundle_excludes_large_files_and_records_checkpoint_hash (test_remote.FetchTests.test_bundle_excludes_large_files_and_records_checkpoint_hash) ... ok
+test_corrupt_transfer_rejected (test_remote.FetchTests.test_corrupt_transfer_rejected) ... ok
+test_export_parent_symlink_rejected (test_remote.FetchTests.test_export_parent_symlink_rejected) ... ok
+test_fetch_running_rejected (test_remote.FetchTests.test_fetch_running_rejected) ... ok
+test_local_result_not_overwritten (test_remote.FetchTests.test_local_result_not_overwritten) ... ok
+test_local_result_symlink_rejected (test_remote.FetchTests.test_local_result_symlink_rejected) ... ok
+test_remote_result_symlink_rejected (test_remote.FetchTests.test_remote_result_symlink_rejected) ... ok
+test_rsync_failure_keeps_partial_no_success_result (test_remote.FetchTests.test_rsync_failure_keeps_partial_no_success_result) ... ok
+test_rsync_success_checksum_and_quoting (test_remote.FetchTests.test_rsync_success_checksum_and_quoting) ... ok
+test_unsafe_manifest_paths_duplicates_checkpoint_rejected (test_remote.FetchTests.test_unsafe_manifest_paths_duplicates_checkpoint_rejected) ... ok
+test_active_job_blocks_checkout (test_remote.GitAndTransportTests.test_active_job_blocks_checkout) ... ok
+test_actual_local_git_fast_forward_and_divergence (test_remote.GitAndTransportTests.test_actual_local_git_fast_forward_and_divergence) ... ok
+test_detached_launch_passes_no_shell (test_remote.GitAndTransportTests.test_detached_launch_passes_no_shell) ... ok
+test_dirty_or_wrong_branch_no_fetch (test_remote.GitAndTransportTests.test_dirty_or_wrong_branch_no_fetch) ... ok
+test_fast_forward_only_no_reset (test_remote.GitAndTransportTests.test_fast_forward_only_no_reset) ... ok
+test_launch_duplicate_id_no_update (test_remote.GitAndTransportTests.test_launch_duplicate_id_no_update) ... ok
+test_mac_requires_pushed_commit_before_ssh (test_remote.GitAndTransportTests.test_mac_requires_pushed_commit_before_ssh) ... ok
+test_remote_commit_mismatch_no_merge (test_remote.GitAndTransportTests.test_remote_commit_mismatch_no_merge) ... ok
+test_setup_default_inspection_only (test_remote.GitAndTransportTests.test_setup_default_inspection_only) ... ok
+test_setup_missing_environment_provides_guidance_no_install (test_remote.GitAndTransportTests.test_setup_missing_environment_provides_guidance_no_install) ... ok
+test_setup_sync_is_explicit_and_fast_forward_only (test_remote.GitAndTransportTests.test_setup_sync_is_explicit_and_fast_forward_only) ... ok
+test_setup_tests_and_smoke_only_on_explicit_options (test_remote.GitAndTransportTests.test_setup_tests_and_smoke_only_on_explicit_options) ... ok
+test_ssh_failure_checked (test_remote.GitAndTransportTests.test_ssh_failure_checked) ... ok
+test_ssh_quoting_and_json_arguments (test_remote.GitAndTransportTests.test_ssh_quoting_and_json_arguments) ... ok
+test_uncommitted_controller_source_blocks_launch (test_remote.GitAndTransportTests.test_uncommitted_controller_source_blocks_launch) ... ok
+test_all_shell_syntax (test_remote.ShellBoundaryTests.test_all_shell_syntax) ... ok
+test_real_local_rsync_flags_and_allowlist (test_remote.ShellBoundaryTests.test_real_local_rsync_flags_and_allowlist) ... ok
+test_wrappers_with_fake_ssh_and_fake_git_no_network (test_remote.ShellBoundaryTests.test_wrappers_with_fake_ssh_and_fake_git_no_network) ... ok
+test_no_experiments (test_remote.StatusAndWorkerTests.test_no_experiments) ... ok
+test_running_failed_complete_and_lost_statuses (test_remote.StatusAndWorkerTests.test_running_failed_complete_and_lost_statuses) ... ok
+test_worker_commit_changed_never_trains (test_remote.StatusAndWorkerTests.test_worker_commit_changed_never_trains) ... ok
+test_worker_training_and_eval_states (test_remote.StatusAndWorkerTests.test_worker_training_and_eval_states) ... ok
+
+----------------------------------------------------------------------
+Ran 37 tests in 3.684s
+
+OK

@@ -207,3 +207,9 @@ bash scripts/tsmixer/remote_fetch.sh <experiment_id>
 ```
 
 기본 setup은 검사 전용이다. launch는 사용자가 직접 실행할 때만 기존 `--full-train` 학습과 development 평가를 시작한다. 설정 파일과 회수 결과는 Git에서 제외하며, SSH·GPU 서버 통합 검사는 사용자가 설정을 마친 뒤 명시적으로 수행한다.
+
+## Google Colab GPU
+
+[`train_colab.ipynb`](../../train_colab.ipynb)는 기본 synthetic5step smoke로 시작하며, Drive 원본을 로컬 디스크로 복사하고 기존 compact 전처리·학습·dev 평가를 호출한다. 선택적 `--backup-root`로 완료 epoch마다 검증된 generation을 저장하고 정상 checkpoint를 복원한다. 원래 constant LR을 유지하면서 scheduler 상태를 checkpoint에 추가했다.
+
+셀1~12 실행 순서, 전체 학습 전환, Drive 경로와 Resume 조건은 [Colab 한국어 안내](../../scripts/tsmixer/colab/README_KO.md)를 따른다. 기존 checkpoint는 보존하며 이전 소스의 실험은 그 commit에서 재개한다. Colab 변경은 GitHub에 반영한 다음 노트북에서 clone해야 한다.
