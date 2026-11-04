@@ -88,3 +88,6 @@ __pycache__/
 __pycache__/
 .DS_Store
 *.log
+
+# Portable XGBoost checkpoints for walk-forward experiments
+*.ubj

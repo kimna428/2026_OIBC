@@ -1,0 +1,4 @@
+-r requirements-common.txt
+# Server-only additions for the reviewed tree adapters; no automatic installation.
+lightgbm>=4.6,<5
+xgboost>=3.0,<4

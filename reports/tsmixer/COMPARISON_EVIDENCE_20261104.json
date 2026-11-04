@@ -1,0 +1,368 @@
+{
+  "date": "2026-11-04",
+  "branch": "experiment/tsmixer-year-backtest",
+  "run": "runs/tsmixer/comparison/local_audit_20261104_002",
+  "source_packages_unchanged_between_audits": true,
+  "manifests": {
+    "repro": {
+      "listed": 104,
+      "present": 33,
+      "missing": [
+        "prepared/cloud.npy",
+        "prepared/days.parquet",
+        "prepared/energy.npy",
+        "prepared/forecast_wa_future.parquet",
+        "prepared/forecast_wb_future.parquet",
+        "prepared/held_forward_weather.parquet",
+        "prepared/label_position.npy",
+        "prepared/labels.parquet",
+        "prepared/raw_features.npy",
+        "prepared/schema.json",
+        "prepared/sunlit.npy",
+        "prepared/test_keys.parquet",
+        "prepared/weather_daily_inputs.parquet",
+        "provenance/environment.json",
+        "provenance/organizer_dataset_sha256.json",
+        "provenance/original_sources/build_balanced_vpp.py",
+        "provenance/original_sources/build_submission_full_cache.py",
+        "provenance/original_sources/common_cloud_inputs.py",
+        "provenance/original_sources/diagnostic_features.py",
+        "provenance/original_sources/run_cnn24_experiment.py",
+        "provenance/original_sources/run_model_benchmarks.py",
+        "provenance/original_sources/run_neural_scaling_suite.py",
+        "provenance/original_sources/run_provider_cloud_auxiliary.py",
+        "provenance/original_sources/run_tree_ab_temporal_features.py",
+        "provenance/original_sources/run_year_holdout_models.py",
+        "provenance/original_sources/run_zero_spell_experiment.py",
+        "provenance/original_sources/train_submission_full_models.py",
+        "provenance/original_sources/train_submission_oof_calibration.py",
+        "provenance/original_sources/weather.py",
+        "provenance/source_extraction.json",
+        "README.md",
+        "records/final/full_bigru_inner.json",
+        "records/final/full_bigru_inner_curve.json",
+        "records/final/full_bigru_outer.json",
+        "records/final/full_bigru_outer_curve.json",
+        "records/final/full_bigru_verified.json",
+        "records/final/full_inner_preprocessing.json",
+        "records/final/full_lightgbm.json",
+        "records/final/full_outer_preprocessing.json",
+        "records/final/full_xgboost.json",
+        "records/final/weather_202406.json",
+        "records/final/weather_202409.json",
+        "records/final/weather_202412.json",
+        "records/final/weather_202503.json",
+        "records/final/weather_202506.json",
+        "records/validation/full_bigru_inner.json",
+        "records/validation/full_bigru_outer.json",
+        "records/validation/full_outer_preprocessing.json",
+        "reference/annual_ratio_review.json",
+        "reference/basic_calibration.json",
+        "reference/composition.csv",
+        "reference/detail_report_evidence.json",
+        "reference/final_site_predictions.parquet",
+        "reference/forecast.csv",
+        "reference/layout_days.parquet",
+        "reference/layout_schema.json",
+        "reference/oof_calibration_verification.json",
+        "reference/selected_stack_all_oof.parquet",
+        "reference/submission_verification.json",
+        "reports/calibration.json",
+        "reports/final_retrain_info.json",
+        "reports/final_retraining_from_raw.json",
+        "reports/historical_metrics.json",
+        "reports/original_data_preprocessing.json",
+        "reports/package_selftest.json",
+        "reports/saved_final_prediction.json",
+        "reports/training_summary.md",
+        "reports/validation_retrain_info.json",
+        "reports/validation_retraining.json",
+        "validator/source.json",
+        "validator/validate_submission.py"
+      ],
+      "mismatch": [],
+      "manifest_sha256": "fb0475f207cd2afae2a4dabcf875681a455e4edb76ecada020e65a56bcb291ff"
+    },
+    "train_source": {
+      "listed": 20,
+      "present": 20,
+      "missing": [],
+      "mismatch": [],
+      "manifest_sha256": "b021d5f11287fc702dd932f5a3a64d36834af14442ff4c125968959fbcef8a42"
+    }
+  },
+  "composition": {
+    "chosen": "/Users/kimna/Downloads/oibc_train_source_2026_11_03/config.json",
+    "sources": {
+      "/Users/kimna/Downloads/oibc_train_source_2026_11_03/config.json": {
+        "source_sha256": "3449f78acdf2d9159a2b0e996decbe0d0205e9d3402312caeae15205259077f5",
+        "membership_sha256": "8506bbc625a7e6f00b51ecdf9ca861b30634bc3dfe20cc42fcef6afcda83d7b3",
+        "counts": {
+          "G1": 127,
+          "G2": 126
+        },
+        "capacity_kw": {
+          "G1": 21334.27,
+          "G2": 21321.1
+        }
+      },
+      "/Users/kimna/Downloads/Clustering_sj.md": {
+        "source_sha256": "7cebc7e8f68edb7c3882ffd82482c48929d07f785a6ef6b515cdd1445b5080ba",
+        "membership_sha256": "8506bbc625a7e6f00b51ecdf9ca861b30634bc3dfe20cc42fcef6afcda83d7b3",
+        "counts": {
+          "G1": 127,
+          "G2": 126
+        },
+        "capacity_kw": {
+          "G1": 21334.27,
+          "G2": 21321.1
+        }
+      }
+    },
+    "all_memberships_match": true,
+    "original_csv_present": false,
+    "recovered_crlf_sha256": "92f82612b50e9447dcfa0f32a336ee2c7bd7596cea1a5530b961caa7aea26ea5",
+    "expected_reference_csv_sha256": "92f82612b50e9447dcfa0f32a336ee2c7bd7596cea1a5530b961caa7aea26ea5",
+    "exact_reference_bytes_reconstructed": true
+  },
+  "geometry": {
+    "teammate": {
+      "within_10km": {
+        "pairs": 938,
+        "separation_pct": 55.863539445628994
+      },
+      "within_30km": {
+        "pairs": 2835,
+        "separation_pct": 52.557319223985886
+      },
+      "same_wa_station": {
+        "pairs": 959,
+        "separation_pct": 55.370177267987486
+      },
+      "same_wb_station": {
+        "pairs": 717,
+        "separation_pct": 56.76429567642957
+      }
+    },
+    "baseline": {
+      "within_10km": {
+        "pairs": 938,
+        "separation_pct": 52.345415778251606
+      },
+      "within_30km": {
+        "pairs": 2835,
+        "separation_pct": 51.49911816578483
+      },
+      "same_wa_station": {
+        "pairs": 959,
+        "separation_pct": 52.45046923879041
+      },
+      "same_wb_station": {
+        "pairs": 717,
+        "separation_pct": 53.69595536959554
+      }
+    },
+    "tsmixer_metadata_candidate": {
+      "within_10km": {
+        "pairs": 938,
+        "separation_pct": 51.385927505330486
+      },
+      "within_30km": {
+        "pairs": 2835,
+        "separation_pct": 51.358024691358025
+      },
+      "same_wa_station": {
+        "pairs": 959,
+        "separation_pct": 54.11887382690303
+      },
+      "same_wb_station": {
+        "pairs": 717,
+        "separation_pct": 52.440725244072524
+      }
+    }
+  },
+  "data": {
+    "data_root": "/Users/kimna/workspace/2026_3_2/2026_OIBC/handover 2/01_participant_dataset",
+    "files": {
+      "sites.csv": "93d166fffd009c3643db748fc6d5a1d48851e5f70b314171130e6ab6b7997ea2",
+      "train/generation.parquet": "a2c334a5d2dd0983be78c7ac138e25a013cf70fd9d027515953129ea79964e95",
+      "train/smp.csv": "6ae610fc3e527e603681da3867ecd79d210ed24a17e676ac16149ba7d349645b"
+    },
+    "raw_year_rows": 2170645,
+    "negative_targets": 0,
+    "raw_precision": "float64",
+    "teammate_prepared_precision": "float32; common evaluation retains original float64",
+    "float32_max_rounding_kwh": 4.8828125045474735e-05,
+    "history_cutoff": "2024-05-31 17:00:00+09:00",
+    "no_history_sites": [
+      "PV007",
+      "PV011",
+      "PV017",
+      "PV018",
+      "PV021",
+      "PV022",
+      "PV030",
+      "PV042",
+      "PV043",
+      "PV046",
+      "PV047",
+      "PV053",
+      "PV058",
+      "PV065",
+      "PV066",
+      "PV069",
+      "PV074",
+      "PV076",
+      "PV083",
+      "PV084",
+      "PV085",
+      "PV090",
+      "PV098",
+      "PV102",
+      "PV106",
+      "PV113",
+      "PV119",
+      "PV125",
+      "PV127",
+      "PV128",
+      "PV132",
+      "PV146",
+      "PV147",
+      "PV164",
+      "PV167",
+      "PV172",
+      "PV182",
+      "PV185",
+      "PV187",
+      "PV191",
+      "PV195",
+      "PV201",
+      "PV207",
+      "PV212",
+      "PV225",
+      "PV229",
+      "PV241",
+      "PV248"
+    ]
+  },
+  "checkpoint_summary": {
+    "validation": {
+      "config": {
+        "numeric_features": 80,
+        "cat_sizes": [
+          206,
+          54,
+          63,
+          4,
+          4,
+          4
+        ],
+        "cat_dims": [
+          8,
+          4,
+          4,
+          2,
+          2,
+          2
+        ]
+      },
+      "epoch": 9,
+      "parameter_count": 51677,
+      "sha256": "f5f1de4ba5524c18d8a2de391ccabc3630f884c49eef4e062ddb8d7050994d09"
+    },
+    "final": {
+      "config": {
+        "numeric_features": 80,
+        "cat_sizes": [
+          254,
+          62,
+          74,
+          4,
+          4,
+          4
+        ],
+        "cat_dims": [
+          8,
+          4,
+          4,
+          2,
+          2,
+          2
+        ]
+      },
+      "epoch": 14,
+      "parameter_count": 52137,
+      "sha256": "c4a8751afc4a515aa233696162521df143d0ab84915ceb6a9bb8e73967b098d7"
+    }
+  },
+  "common_data": {
+    "observed_rows": 2170645,
+    "valid_hours": 8760,
+    "complete_fleet_hours": 3802,
+    "contract": {
+      "schema": "oibc_common_v1",
+      "mode": "observed_only",
+      "start": "2024-06-01 01:00:00+09:00",
+      "last": "2025-06-01 00:00:00+09:00",
+      "time_sha256": "2157ef787d5ada358b5b1102dd78e09b02c065f6adf4059fac59880e9cd1be83",
+      "site_order_sha256": "cab5e5545205c4c243d3eac739493ce3d2d89c757d3442a9c5a0509c3afc5ff6",
+      "actual_sha256": "02483d4986175d082a47e80c1ea07090dca72c128b01dce1a08d49c286f5e354",
+      "observed_mask_sha256": "1e10eedb8b29a559a883bc8cbf322b357fd9f271c1e6fb90e03cb8b1b933eb87",
+      "smp_sha256": "7bd5084d490c74ae8f04af9b87a7b29a9686cc4f8782efb1a6cb640f30911f1b",
+      "k_sha256": "0f137854a79455f21117b459ba769c2aeb00b37ae9781a4b717d21cd987b1504",
+      "composition_sha256": "8506bbc625a7e6f00b51ecdf9ca861b30634bc3dfe20cc42fcef6afcda83d7b3",
+      "site_nmae": "mean(100*abs(pred-actual)/site_capacity) over used observed rows",
+      "group_nmae": "100*sum(abs(group_residual))/sum(observed_group_capacity)",
+      "group_nmae_macro": "mean(100*abs(group_residual)/observed_group_capacity)",
+      "penalty": ".1*SMP*k*abs(sum_observed(pred-actual))",
+      "settlement": "sum_observed(actual*SMP)-W",
+      "missing": "no imputation; same observed members for actual and prediction"
+    }
+  },
+  "tsmixer_report_mask_matches": true,
+  "performance_status": "blocked_missing_predictions",
+  "availability": {
+    "tsmixer": {
+      "status": "unavailable",
+      "reason": "Missing year predictions.npy and/or prediction_axis.json; dev/smoke predictions cannot substitute"
+    },
+    "lightgbm": {
+      "status": "unavailable",
+      "reason": "No saved validation predictions"
+    },
+    "xgboost": {
+      "status": "unavailable",
+      "reason": "No saved validation predictions"
+    },
+    "bigru": {
+      "status": "unavailable",
+      "reason": "No saved validation predictions"
+    },
+    "teammate_ensemble": {
+      "status": "unavailable",
+      "reason": "No saved validation predictions"
+    },
+    "separate_gru1": {
+      "status": "unavailable",
+      "reason": "No implementation/checkpoint for this described experiment"
+    },
+    "separate_gru2": {
+      "status": "unavailable",
+      "reason": "No implementation/checkpoint for this described experiment"
+    }
+  },
+  "reference": {
+    "verified": false,
+    "reason": "No original baseline validation predictions; fixed denominator in config alone is insufficient"
+  },
+  "tests": {
+    "total": 61,
+    "passed": 60,
+    "skipped": 1,
+    "skip_reason": "CUDA runtime unavailable",
+    "new_fixture_tests": 9
+  },
+  "source_programs_executed": false,
+  "full_training_executed": false,
+  "remote_connections_executed": false
+}

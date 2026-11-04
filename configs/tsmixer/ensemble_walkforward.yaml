@@ -1,0 +1,21 @@
+version: past_only_walkforward_v1
+base_config: configs/tsmixer/year_backtest.yaml
+sj_features: configs/tsmixer/ensemble_sj_features.json
+data_root: ${OIBC_DATA_ROOT:-handover 2/01_participant_dataset}
+cache_root: ${OIBC_TSMIXER_CACHE_ROOT:-runs/tsmixer/cache_station_v1}
+run_root: ${OIBC_ENSEMBLE_ROOT:-runs/tsmixer/ensemble/walkforward_v1}
+train_start: '2021-01-01'
+seed: 2026
+cpu_threads: 4
+state_batch_days: 1
+sj_batch_size: 256
+max_epochs: 30
+patience: 6
+grid_step: 0.1
+joint_site_weight: 0.8
+joint_penalty_weight: 0.2
+sj_calibration: none
+sj_group: runs/tsmixer/comparison/local_audit_20261104_002/teammate_composition.csv
+legacy_tsmixer: runs/tsmixer/year_backtest/seed2026_001
+selection_policy: macro_mean_site_nmae_then_worst_fold
+baseline_reference: null
