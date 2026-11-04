@@ -1,0 +1,125 @@
+{
+  "assignments": {
+    "baseline/complete_fleet": {
+      "contract": {
+        "composition_sha256": "b666a5df5be7c4d3810d443285ce70a96d8f6380c34d4d5de3a6db3e7821b058",
+        "mode": "complete_fleet",
+        "timestamps_sha256": "55dc9f950b059509c0bc73f1deab3712b42f207e0d98dacf3c4773928283fe72",
+        "observed_mask_sha256": "ce7090dd362d78eda1c2fdadda263325f035e584dd34fd4f693174ad15335e39",
+        "observed_rows": 961906,
+        "valid_hours": 3802,
+        "group_hour_rows": 7604,
+        "start": "2024-06-01 01:00:00+09:00",
+        "end": "2025-06-01 00:00:00+09:00",
+        "observed_aggregation": "sum_actual_and_prediction_over_observed_members",
+        "nmae_denominator": "observed_member_capacity",
+        "k": "11..15 KST:3, otherwise:1"
+      },
+      "group_capacity_kw": {
+        "G1": 21320.87,
+        "G2": 21334.5
+      },
+      "site_nmae_pct": 3.6902393373990394,
+      "group_nmae_pct": 2.328533046326867,
+      "W": 101542037.59309815,
+      "S": 3281873341.655992,
+      "revenue_krw": 3383415379.24909,
+      "penalty_per_hour": 26707.532244370897,
+      "internal_score": 54.64698402213336,
+      "comparable_internal_score": false,
+      "comparison_status": "unverified_do_not_compare"
+    },
+    "baseline/observed_only": {
+      "contract": {
+        "composition_sha256": "b666a5df5be7c4d3810d443285ce70a96d8f6380c34d4d5de3a6db3e7821b058",
+        "mode": "observed_only",
+        "timestamps_sha256": "40dbb1670d7e4f80c5f6d1b1ea742c5213f94682be8db62a1a616386a771fb17",
+        "observed_mask_sha256": "ce7090dd362d78eda1c2fdadda263325f035e584dd34fd4f693174ad15335e39",
+        "observed_rows": 2170645,
+        "valid_hours": 8760,
+        "group_hour_rows": 17520,
+        "start": "2024-06-01 01:00:00+09:00",
+        "end": "2025-06-01 00:00:00+09:00",
+        "observed_aggregation": "sum_actual_and_prediction_over_observed_members",
+        "nmae_denominator": "observed_member_capacity",
+        "k": "11..15 KST:3, otherwise:1"
+      },
+      "group_capacity_kw": {
+        "G1": 21320.87,
+        "G2": 21334.5
+      },
+      "site_nmae_pct": 4.018044589037637,
+      "group_nmae_pct": 2.5925064223662933,
+      "W": 265885394.24949712,
+      "S": 7231698092.64815,
+      "revenue_krw": 7497583486.897649,
+      "penalty_per_hour": 30352.213955422045,
+      "internal_score": -18.755786465510592,
+      "comparable_internal_score": false,
+      "comparison_status": "unverified_do_not_compare"
+    },
+    "tsmixer_metadata_candidate/complete_fleet": {
+      "contract": {
+        "composition_sha256": "764935858c9873db7af151f211dc959a46ad4868ded3e07fe6fe4749442ea7aa",
+        "mode": "complete_fleet",
+        "timestamps_sha256": "55dc9f950b059509c0bc73f1deab3712b42f207e0d98dacf3c4773928283fe72",
+        "observed_mask_sha256": "ce7090dd362d78eda1c2fdadda263325f035e584dd34fd4f693174ad15335e39",
+        "observed_rows": 961906,
+        "valid_hours": 3802,
+        "group_hour_rows": 7604,
+        "start": "2024-06-01 01:00:00+09:00",
+        "end": "2025-06-01 00:00:00+09:00",
+        "observed_aggregation": "sum_actual_and_prediction_over_observed_members",
+        "nmae_denominator": "observed_member_capacity",
+        "k": "11..15 KST:3, otherwise:1"
+      },
+      "group_capacity_kw": {
+        "G1": 21444.485,
+        "G2": 21210.885
+      },
+      "site_nmae_pct": 3.6902393373990394,
+      "group_nmae_pct": 2.3260993270510846,
+      "W": 101485933.55485399,
+      "S": 3281929445.6942363,
+      "revenue_krw": 3383415379.24909,
+      "penalty_per_hour": 26692.775790335083,
+      "internal_score": 54.672042484650206,
+      "comparable_internal_score": false,
+      "comparison_status": "unverified_do_not_compare"
+    },
+    "tsmixer_metadata_candidate/observed_only": {
+      "contract": {
+        "composition_sha256": "764935858c9873db7af151f211dc959a46ad4868ded3e07fe6fe4749442ea7aa",
+        "mode": "observed_only",
+        "timestamps_sha256": "40dbb1670d7e4f80c5f6d1b1ea742c5213f94682be8db62a1a616386a771fb17",
+        "observed_mask_sha256": "ce7090dd362d78eda1c2fdadda263325f035e584dd34fd4f693174ad15335e39",
+        "observed_rows": 2170645,
+        "valid_hours": 8760,
+        "group_hour_rows": 17520,
+        "start": "2024-06-01 01:00:00+09:00",
+        "end": "2025-06-01 00:00:00+09:00",
+        "observed_aggregation": "sum_actual_and_prediction_over_observed_members",
+        "nmae_denominator": "observed_member_capacity",
+        "k": "11..15 KST:3, otherwise:1"
+      },
+      "group_capacity_kw": {
+        "G1": 21444.485,
+        "G2": 21210.885
+      },
+      "site_nmae_pct": 4.018044589037637,
+      "group_nmae_pct": 2.5888731562993472,
+      "W": 265643168.93913928,
+      "S": 7231940317.958509,
+      "revenue_krw": 7497583486.897649,
+      "penalty_per_hour": 30324.562664285306,
+      "internal_score": -18.647598284228238,
+      "comparable_internal_score": false,
+      "comparison_status": "unverified_do_not_compare"
+    }
+  },
+  "site_nmae_pct": 4.018044589037638,
+  "observed_site_rows": 2170645,
+  "teammate_available": false,
+  "tsmixer_candidate_status": "metadata_only_experimental_not_performance_optimized",
+  "reference_penalty": 223892580.02742994
+}

@@ -1,0 +1,2 @@
+{"epoch": 1, "loss": 0.040248598502200646, "updates": 2897, "site_mass": 246765242.08203125, "gradient_norm": 0.4361235797405243, "validation_site_cf_mae": null}
+{"epoch": 2, "loss": 0.034129508641186544, "updates": 2897, "site_mass": 246765242.61328125, "gradient_norm": 0.9499337673187256, "validation_site_cf_mae": null}
